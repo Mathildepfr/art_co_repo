@@ -1,12 +1,19 @@
-<h1>All artworks</h1>
+<div class="artworks-index">
+  <div class="artworks-index-text">
+    <h1>All artworks</h1>
+  </div>
 
-<% @artworks.each do |artwork| %>
-  <h2><strong><%= link_to artwork.title, artwork_path(artwork) %></strong></h2>
-  <p><i class="fas fa-money-bill-alt"></i><span class="text-muted"> Description: </span><%= artwork.description %></p>
-  <p><i class="fas fa-money-bill-alt"></i> $<%= artwork.price %></p>
-  <p><i class="fas fa-hat-cowboy-side"></i><span class="text-muted"> Size: </span><%= artwork.size %></p>
-  <p><i class="fas fa-money-bill-alt"></i><span class="text-muted"> Style: </span><%= artwork.style %></p>
-  <p><i class="fas fa-money-bill-alt"></i><span class="text-muted"> Type: </span><%= artwork.medium %></p>
-  <p><i class="fas fa-question-circle"></i></i><span class="text-muted"> Available: </span><%= artwork.available ? '<i class="fas fa-check-circle text-success"></i>'.html_safe : '<i class="fas fa-times-circle text-danger"></i>'.html_safe %></p>
-  <%= image_tag artwork.photo_url, height: 200, width: 200, crop: :fill %>
-<% end %>
+  <div class="artworks-index-container">
+    <% @artworks.each do |artwork| %>
+      <div class="artworks-index-cards">
+        <%= link_to artwork_path(artwork) do %>
+          <div class="artwork-index-card-img" style="background-image: url('<%= image_path artwork.photo_url, crop: :fill %>')"></div>
+        <% end %>
+        <div class="artworks-index-card-text">
+          <h2><strong><%= link_to artwork.title, artwork_path(artwork) %></strong></h2>
+          <p><i class="fas fa-question-circle"></i></i><span class="text-muted"> Available: </span><%= artwork.available ? '<i class="fas fa-check-circle text-success"></i>'.html_safe : '<i class="fas fa-times-circle text-danger"></i>'.html_safe %></p>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>
