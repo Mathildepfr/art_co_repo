@@ -1,6 +1,14 @@
 .navbar-lewagon {
   justify-content: space-between;
-  background: white;
+  background-color: transparent;
+  transition: 1s background-color ease;
+  width: 100%;
+  position: fixed;
+  z-index: 100;
+}
+
+.navbar-lewagon-darkblue {
+  background-color: $artco-darkblue;
 }
 
 .navbar-lewagon .navbar-collapse {
@@ -9,4 +17,39 @@
 
 .navbar-lewagon .navbar-brand img {
   width: 40px;
+}
+
+.navbar-light .navbar-brand,
+.navbar-light .navbar-nav .nav-link {
+  color: #fff;
+
+  &:hover {
+    color: rgba(255, 255, 255, 0.7);
+  }
+}
+
+.logo-and-name {
+  display: flex;
+  align-items: center;
+}
+
+.logo_wrapper {
+  width: 40px;
+  height: 40px;
+  position: relative;
+  margin-right: 8px;
+}
+
+.logo_wrapper img {
+  position: absolute;
+  left: 0;
+
+  &.white {
+    opacity: 0;
+    transition: opacity 0.2s linear;
+
+    &.logo-visible {
+      opacity: 1;
+    }
+  }
 }
