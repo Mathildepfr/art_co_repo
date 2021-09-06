@@ -84,4 +84,5 @@ listentotheocean = Artwork.new(title: "Listen to the Ocean", description: "Nothi
 listentotheocean.collection = calming
 listentotheocean.save
 
+
 puts "Finished"
