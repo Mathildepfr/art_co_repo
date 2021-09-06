@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_09_06_045437) do
+ActiveRecord::Schema.define(version: 2021_09_06_071147) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -31,21 +31,19 @@ ActiveRecord::Schema.define(version: 2021_09_06_045437) do
     t.integer "price"
     t.string "size"
     t.boolean "available"
-    t.string "type"
     t.string "style"
     t.bigint "collection_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.string "medium"
     t.index ["collection_id"], name: "index_artworks_on_collection_id"
   end
 
   create_table "collections", force: :cascade do |t|
     t.string "title"
     t.bigint "user_id", null: false
-    t.bigint "expo_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["expo_id"], name: "index_collections_on_expo_id"
     t.index ["user_id"], name: "index_collections_on_user_id"
   end
 
@@ -89,7 +87,6 @@ ActiveRecord::Schema.define(version: 2021_09_06_045437) do
   add_foreign_key "artist_invitations", "expos"
   add_foreign_key "artist_invitations", "users"
   add_foreign_key "artworks", "collections"
-  add_foreign_key "collections", "expos"
   add_foreign_key "collections", "users"
   add_foreign_key "expos", "venues"
   add_foreign_key "venues", "users"
