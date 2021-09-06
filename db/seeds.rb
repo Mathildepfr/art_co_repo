@@ -5,6 +5,8 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+require "open-uri"
+
 puts "Destroying all files.."
 User.destroy_all
 Venue.destroy_all
@@ -12,11 +14,31 @@ Collection.destroy_all
 Artwork.destroy_all
 
 puts "Creating new files..."
-mathilde = User.create!(first_name: "Mathilde", last_name: "Peiffer", address: "4 Good Street, Prahran", is_artist: true, email: "mathilde@hotmail.com", password: "password")
-alastair = User.create!(first_name: "Alastair", last_name: "Tooth", address: "10 Nice Street, Richmond", is_artist: true, email: "alastair@hotmail.com", password: "password")
-jason = User.create!(first_name: "Jason", last_name: "Jun", address: "8 Wow Street, St Kilda", is_artist: true, email: "jason@hotmail.com", password: "password")
-charlie = User.create!(first_name: "Charlie", last_name: "Song", address: "4 Chichon Street, Festi", is_artist: false, email: "charlie@hotmail.com", password: "password")
-george = User.create!(first_name: "George", last_name: "Kettle", address: "20 Farm Street, Sydney", is_artist: false, email: "george@hotmail.com", password: "password")
+mathilde = User.create!(first_name: "Mathilde", last_name: "Peiffer",
+  address: "4 Good Street, Prahran", is_artist: true,
+  email: "mathilde@hotmail.com", password: "password",
+  photo_url: "https://avatars.githubusercontent.com/u/86634734?v=4"
+)
+alastair = User.create!(first_name: "Alastair", last_name: "Tooth",
+  address: "10 Nice Street, Richmond", is_artist: true,
+  email: "alastair@hotmail.com", password: "password",
+  photo_url: "https://res.cloudinary.com/wagon/image/upload/c_fill,g_face,h_200,w_200/v1626063803/dksd83emlffgx6g3ywbl.jpg"
+)
+jason = User.create!(first_name: "Jason", last_name: "Jun",
+  address: "8 Wow Street, St Kilda", is_artist: true,
+  email: "jason@hotmail.com", password: "password",
+  photo_url: "https://avatars.githubusercontent.com/u/5119591?v=4v"
+)
+charlie = User.create!(first_name: "Charlie", last_name: "Song",
+  address: "4 Chichon Street, Festi", is_artist: false,
+  email: "charlie@hotmail.com", password: "password",
+  photo_url: "https://avatars.githubusercontent.com/u/65821608?v=4"
+)
+george = User.create!(first_name: "George", last_name: "Kettle",
+  address: "20 Farm Street, Sydney", is_artist: false,
+  email: "george@hotmail.com", password: "password",
+  photo_url: "https://avatars.githubusercontent.com/u/34521157?v=4"
+)
 
 coolgallery = Venue.new(name: "Cool Gallery", address: "45 Cool Street, Richmond", type_of_venue: "Gallery", venue_url: "www.coolgallery.com")
 coolgallery.user = charlie
