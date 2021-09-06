@@ -8,4 +8,5 @@
   <p><i class="fas fa-money-bill-alt"></i><span class="text-muted"> Style: </span><%= artwork.style %></p>
   <p><i class="fas fa-money-bill-alt"></i><span class="text-muted"> Type: </span><%= artwork.medium %></p>
   <p><i class="fas fa-question-circle"></i></i><span class="text-muted"> Available: </span><%= artwork.available ? '<i class="fas fa-check-circle text-success"></i>'.html_safe : '<i class="fas fa-times-circle text-danger"></i>'.html_safe %></p>
+  <%= image_tag artwork.photo_url, height: 200, width: 200, crop: :fill %>
 <% end %>
