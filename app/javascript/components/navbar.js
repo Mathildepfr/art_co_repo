@@ -1,5 +1,5 @@
 const initUpdateNavbarOnScroll = () => {
-  const navbar = document.querySelector('.navbar-lewagon');
+  const navbar = document.querySelector('#home-navbar');
   const whiteLogo = document.querySelector('.logo_wrapper img.white');
 
   if (navbar) {
