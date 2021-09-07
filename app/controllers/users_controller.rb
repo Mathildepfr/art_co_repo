@@ -7,6 +7,7 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
     @artworks = @user.artworks
     @collections = @user.collections
+    @venues = @user.venues
   end
 
   def new

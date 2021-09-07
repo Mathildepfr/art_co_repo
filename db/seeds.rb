@@ -132,5 +132,4 @@ cliffmorning = Artwork.new(title: "The cliff is waking up", description: "Calm m
 cliffmorning.collection = calming
 cliffmorning.save
 
-
 puts "Finished"

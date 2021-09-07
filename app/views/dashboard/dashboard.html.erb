@@ -1,0 +1,80 @@
+<div class="dashboard-container">
+  <ul class="nav nav-pills nav-fill" id="myTab" role="tablist">
+    <li class="nav-item" role="presentation">
+      <a class="nav-link active" id="request-tab" data-toggle="tab" href="#request" role="tab" aria-controls="request" aria-selected="true">Expo</a>
+    </li>
+    <li class="nav-item" role="presentation">
+      <a class="nav-link" id="items-tab" data-toggle="tab" href="#items" role="tab" aria-controls="items" aria-selected="false">My Items</a>
+    </li>
+  </ul>
+  <div class="tab-content" id="myTabContent">
+    <div class="tab-pane fade show active" id="request" role="tabpanel" aria-labelledby="request-tab">
+
+    </div>
+    <div class="tab-pane fade" id="items" role="tabpanel" aria-labelledby="items-tab">
+      <% if current_user.is_artist == true %>
+        <div class="user-dashboard-container">
+          <div class="user-artist-profile">
+            <div class="avatar-profile" style="background-image: url('<%= image_path current_user.photo_url, crop: :fill %>')"></div>
+            <div class="user-artist-show-text">
+              <h1><%= current_user.first_name %> <%= current_user.last_name %></h1>
+              <p class="text-secondary"><i class="fas fa-map-marker-alt"></i>  <%= current_user.address %></p>
+              <p class="text-secondary"><i class="fas fa-envelope"></i>  <%= current_user.email %></p>
+            </div>
+          </div>
+
+          <div class="artworks-index-cards-container">
+            <% @artworks.each do |artwork| %>
+              <div class="artworks-index-cards">
+                <%= link_to artwork_path(artwork) do %>
+                  <div class="artwork-index-card-img" style="background-image: url('<%= image_path artwork.photo_url, crop: :fill %>')"></div>
+                <% end %>
+                <div class="artworks-index-card-text">
+                  <h2><strong><%= link_to artwork.title, artwork_path(artwork) %></strong></h2>
+                  <p><i class="fas fa-question-circle"></i></i><span class="text-muted"> Available: </span><%= artwork.available ? '<i class="fas fa-check-circle text-success"></i>'.html_safe : '<i class="fas fa-times-circle text-danger"></i>'.html_safe %></p>
+                </div>
+              </div>
+            <% end %>
+          </div>
+
+          <div class="collections-index-cards-container">
+            <% @collections.each do |collection| %>
+              <div class="collection-index-card-text">
+                <h2><strong><%= collection.title %></strong>  <i class="fas fa-arrows-alt-h"></i></h2>
+              </div>
+              <div class="collections-index-scroll">
+                <% collection.artworks.each do |artwork| %>
+                  <div class="collections-artworks-index-cards">
+                    <%= link_to artwork_path(artwork) do %>
+                      <div class="collections-artwork-index-card-img" style="background-image: url('<%= image_path artwork.photo_url, crop: :fill %>')"></div>
+                    <% end %>
+                  </div>
+                <% end %>
+              </div>
+            <% end %>
+          </div>
+        </div>
+      <% else %>
+        <div class="user-dashboard-container">
+          <div class="user-artist-profile">
+            <div class="avatar-profile" style="background-image: url('<%= image_path current_user.photo_url, crop: :fill %>')"></div>
+            <div class="user-artist-show-text">
+              <h1><%= current_user.first_name %> <%= current_user.last_name %></h1>
+              <p class="text-secondary"><i class="fas fa-map-marker-alt"></i>  <%= current_user.address %></p>
+              <p class="text-secondary"><i class="fas fa-envelope"></i>  <%= current_user.email %></p>
+            </div>
+          </div>
+          <% @venues.each do |venue| %>
+            <div class="collection-index-card-text">
+              <h2><strong><%= venue.name %></strong></h2>
+              <p><%= venue.address %></p>
+              <p><%= venue.type_of_venue %></p>
+              <p><%= venue.venue_url %></p>
+            </div>
+          <% end %>
+        </div>
+      <% end %>
+
+    </div>
+  </div>
+</div>

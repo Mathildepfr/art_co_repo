@@ -59,4 +59,29 @@
       </div>
     </div>
   </div>
+<% else %>
+  <div class="user-artist-show-container">
+    <div class="user-artist-social-media">
+      <i class="fab fa-behance-square"></i>
+      <i class="fab fa-dribbble-square"></i>
+      <i class="fab fa-facebook-square"></i>
+      <i class="fab fa-instagram-square"></i>
+    </div>
+    <div class="user-artist-profile">
+      <div class="avatar-profile" style="background-image: url('<%= image_path @user.photo_url, crop: :fill %>')"></div>
+      <div class="user-artist-show-text">
+        <h1><%= @user.first_name %> <%= @user.last_name %></h1>
+        <p class="text-secondary"><i class="fas fa-map-marker-alt"></i>  <%= @user.address %></p>
+        <p class="text-secondary"><i class="fas fa-envelope"></i>  <%= @user.email %></p>
+      </div>
+    </div>
+    <% @venues.each do |venue| %>
+      <div class="collection-index-card-text">
+        <h2><strong><%= venue.name %></strong></h2>
+        <p><%= venue.address %></p>
+        <p><%= venue.type_of_venue %></p>
+        <p><%= venue.venue_url %></p>
+      </div>
+    <% end %>
+  </div>
 <% end %>
