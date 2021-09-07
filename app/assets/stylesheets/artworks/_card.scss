@@ -44,6 +44,9 @@
   grid-template-columns: 1fr;
   width: 40%;
   margin: 0 auto;
+  h2, a {
+    color: black;
+  }
 }
 
 .artwork-show-card-img {
@@ -55,4 +58,13 @@
 
 .fas, i {
   color: #b4b4b4;
+}
+
+.artworks-show-text-icons {
+  display: flex;
+}
+
+.artworks-show-text-title {
+  display: flex;
+  justify-content: space-between;
 }
