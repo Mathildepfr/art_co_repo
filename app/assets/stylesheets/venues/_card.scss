@@ -1,0 +1,38 @@
+.container-user {
+  width: 100%;
+  margin-top: 5%;
+}
+
+.container-user-card {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+
+.card-user-img {
+  aspect-ratio: 16 / 12;
+}
+
+.card-user-img-profile {
+  aspect-ratio: 16 / 12;
+  // border-radius: 8px;
+  background-size: cover;
+  border-radius: 8px 0px 0px 8px;
+  width: 50%;
+}
+
+.container-user-profile-index {
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  padding: 0%;
+  text-align: left;
+  display: flex;
+  background-color: white;
+  margin: 2%;
+  border-radius: 8px;
+  margin-left: 0;
+    .card-user-img-profile-index {
+      width: 60%;
+      background-position: center;
+      background-size: cover;
+      border-radius: 8px 0 0 8px;
+    }
+}
