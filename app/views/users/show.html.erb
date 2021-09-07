@@ -1,14 +1,1 @@
-<div class="container-user">
-  <div class="container-user-profile">
-    <% if @user.photo.attached? %>
-        <div class="card-user-img-profile" style="background-image: url('<%= cl_image_path @user.photo.key, height: 300, crop: :fill %>')"></div>
-    <% else %>
-        <div class="card-user-img-profile" style="background-image: url('<%= image_tag 'avatar_placeholder.png', height: 300, crop: :fill %>')"></div>
-    <% end %>
-    <div class="container-user-info">
-      <h2><%= @user.first_name %> <%= @user.last_name %></h2>
-      <p><span class="text-muted"><%= @user.email %></span></p>
-      <p><span class="text-muted"><%= @user.address %></span></p>
-    </div>
-  </div>
-</div>
+<h1><%= @user.first_name %></h1>
