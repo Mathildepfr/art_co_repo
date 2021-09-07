@@ -1,18 +1,26 @@
 .artworks-index {
-  margin-left: 5%;
-  margin-right: 5%;
+  width: 70%;
+  margin: 0 auto;
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  padding: 2%;
 }
 
 .artworks-index-container {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr;
   grid-gap: 2%;
+  margin-bottom: 10%;
 }
 
 .artworks-index-cards {
   height: 100%;
   border-radius: 8px;
   padding: 0%;
+}
+
+.artworks-index-text {
+  margin-top: 2%;
+  margin-bottom: 2%;
 }
 
 .artwork-index-card-img {
@@ -30,14 +38,15 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  a {
+  a, h2 {
       font-weight: lighter;
       color: black;
       margin-bottom: 0;
-      font-size: 60%;
+      font-size: 100%;
     }
-    p {
+  p {
       margin-bottom: 0;
+      font-size: 90%;
     }
 }
 
@@ -74,6 +83,7 @@
   justify-content: left;
   align-items: center;
   margin-top: 0;
+  margin-bottom: 4%;
 }
 
 .artworks-show-text-icons {
@@ -86,7 +96,6 @@
   display: flex;
   justify-content: space-between;
 }
-
 
 .artworks-text {
   width: 100%;
