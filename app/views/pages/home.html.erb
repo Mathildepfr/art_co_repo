@@ -1,13 +1,7 @@
-<div class="home-banner">
-  <h1>Art Co</h1>
-  <p>
-    <span id="banner-typed-text"></span>
-  </p>
-</div>
-<div class="container">
-  <div class="row justify-content-center">
-    <div class="col-6">
-      <%= "Lorem ipsum dolor sit amet, consectetur adipisicing elit " * 100 %>
-    </div>
-  </div>
+
+<div class="img-container" data-slideshow>
+  <% rng = (1..20).to_a.shuffle %>
+  <% rng.each do |num| %>
+  <%= image_tag "banner/ArtBanner#{num}.jpeg", alt: "Art Banner #{num}", class: "banner-home" %>
+  <% end %>
 </div>
