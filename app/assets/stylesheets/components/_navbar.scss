@@ -56,3 +56,20 @@
 #home-navbar {
   position: fixed;
 }
+
+
+.nav-link.active {
+  background-color: #3333FF!important;
+}
+
+.nav-link.active:hover {
+  background-color: #1C1E27!important;
+}
+
+.nav-link {
+  color: #1C1E27;
+}
+
+.nav-link:hover {
+  color: #3333FF;
+}
