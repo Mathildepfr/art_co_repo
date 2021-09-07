@@ -10,7 +10,13 @@
   </div>
 </div>
 
-
+<div class="gallery">
+  <% @article.photos.each do |photo| %>
+    <figure class="gallery-item">
+      <%= cl_image_tag photo.key, height: 300, width: 400, crop: :fill %>
+    </figure>
+  <% end %>
+</div>
 
 
 <!-- Button trigger modal -->
