@@ -1,0 +1,9 @@
+<% @venues.each do |venue| %>
+  <%= link_to venue_path(venue) do %>
+    <div class="card-venue-img" style="background-image: url('<%= cl_image_path venue.photo.key, height: 300, crop: :fill %>')"></div>
+  <% end %>
+  <div class="card-venue-text">
+    <h2><strong><%= venue.name %></strong></h2>
+    <p><%= venue.type_of_venue %></p>
+  </div>
+<% end %>

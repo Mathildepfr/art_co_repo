@@ -1,0 +1,55 @@
+<div class="container-venue">
+  <div class="container-venue-card">
+    <div class="card-venue-text">
+      <h2><%= @venue.name %></h2>
+      <br>
+      <p>Venue Type: <%= @venue.type_of_venue %></p>
+      <p><%= @venue.address %></p>
+      <p><%= @venue.venue_url %></p>
+    </div>
+  </div>
+</div>
+
+<div class="gallery">
+  <% @venue.photos.each do |photo| %>
+    <figure class="gallery-item">
+      <%= cl_image_tag photo.key %>
+    </figure>
+  <% end %>
+</div>
+
+
+<!-- Button trigger modal -->
+<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+  See Venue Profile
+</button>
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel"><%= @user.find(@venue.user_id).first_name %> <%= @user.find(@venue.user_id).last_name %></h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <% if @user.find(@venue.user_id).photo.attached? %>
+          <div class="card-user-img-profile-index">
+            <%= cl_image_tag @user.find(@venue.user_id).photo.key, height: 200, width:200, crop: :fill %>
+          </div>
+        <% else %>
+          <div class="card-user-img-profile-index">
+            <%= image_tag('avatar_placeholder.png', height: 200, width:200, crop: :fill) %>
+          </div>
+        <% end %>
+          <p><i class="far fa-envelope"></i> <span class="text-muted"><%= @user.find(@venue.user_id).email %></span></p>
+          <p><i class="fas fa-map-marker-alt"></i> <span class="text-muted"><%= @user.find(@venue.user_id).address %></span></p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
