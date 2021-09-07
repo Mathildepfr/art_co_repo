@@ -27,8 +27,12 @@ import "bootstrap";
 // Internal imports, e.g:
 // import { initSelect2 } from '../components/init_select2';
 import { Slideshow } from '../components/slideshow';
+import { initUpdateNavbarOnScroll } from '../components/navbar';
+import { loadDynamicBannerText } from '../components/banner';
 
 document.addEventListener('turbolinks:load', () => {
   // Call your functions here, e.g:
   Slideshow();
+  initUpdateNavbarOnScroll();
+  loadDynamicBannerText();
 });

@@ -1,4 +1,4 @@
 class Collection < ApplicationRecord
   belongs_to :user
-  belongs_to :expo
+  has_many :artworks
 end

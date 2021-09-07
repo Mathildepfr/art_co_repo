@@ -1,0 +1,19 @@
+<div class="artworks-index">
+  <div class="artworks-index-text">
+    <h1>All artworks</h1>
+  </div>
+
+  <div class="artworks-index-container">
+    <% @artworks.each do |artwork| %>
+      <div class="artworks-index-cards">
+        <%= link_to artwork_path(artwork) do %>
+          <div class="artwork-index-card-img" style="background-image: url('<%= image_path artwork.photo_url, crop: :fill %>')"></div>
+        <% end %>
+        <div class="artworks-index-card-text">
+          <h2><strong><%= link_to artwork.title, artwork_path(artwork) %></strong></h2>
+          <p><i class="fas fa-question-circle"></i></i><span class="text-muted"> Available: </span><%= artwork.available ? '<i class="fas fa-check-circle text-success"></i>'.html_safe : '<i class="fas fa-times-circle text-danger"></i>'.html_safe %></p>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>
