@@ -3,7 +3,6 @@
   background-color: transparent;
   transition: 1s background-color ease;
   width: 100%;
-  position: fixed;
   z-index: 100;
 }
 
@@ -52,4 +51,8 @@
       opacity: 1;
     }
   }
+}
+
+#home-navbar {
+  position: fixed;
 }
