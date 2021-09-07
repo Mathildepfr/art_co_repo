@@ -10,3 +10,21 @@
   padding: 2%;
   margin-top: 5%;
 }
+
+.dashboard-buttons{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.dashboard-btn {
+  margin: 1%;
+  width: 100%;
+  background-color: #1C1E27;
+  color: white;
+}
+
+.dashboard-btn:hover {
+  background-color: #3333FF;
+  color: white;
+}

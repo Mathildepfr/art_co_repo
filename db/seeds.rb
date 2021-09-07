@@ -76,6 +76,34 @@ latenight = Artwork.new(title: "Late night", description: "It's late in New-York
 latenight.collection = emotions
 latenight.save
 
+happiness = Collection.new(title: "Happiness")
+happiness.user = mathilde
+happiness.save!
+
+flames = Artwork.new(title: "Flames of Happiness", description: "Its burning with happiness outside",
+  price: 2900, size: "300x800", available: true,
+  medium: "Painting", style: "Modern",
+  photo_url: "https://afremov.com/images/product/image_1301.jpeg"
+)
+flames.collection = happiness
+flames.save
+
+love = Artwork.new(title: "Love under the rain", description: "Its raining but who cares",
+  price: 3500, size: "400x800", available: true,
+  medium: "Painting", style: "Modern",
+  photo_url: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSMiBd_XydsIpizQbl9nMmomiTxI4YwBgfWRQ&usqp=CAU"
+)
+love.collection = happiness
+love.save
+
+kissrain = Artwork.new(title: "Kiss under the rain", description: "Its raining but who cares",
+  price: 2800, size: "500x800", available: true,
+  medium: "Painting", style: "Modern",
+  photo_url: "https://m.media-amazon.com/images/I/812eVUYv8XL._SL1386_.jpg"
+)
+kissrain.collection = happiness
+kissrain.save
+
 goingcrazy = Collection.new(title: "Going Crazy")
 goingcrazy.user = alastair
 goingcrazy.save!

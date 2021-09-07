@@ -12,7 +12,7 @@ class CollectionsController < ApplicationController
   def create
     @collection = Collection.new(collection_params)
     if @collection.save
-      redirect_to collection_path(@collection)
+      redirect_to dashboard_path
     else
       render :new
     end
@@ -31,7 +31,7 @@ class CollectionsController < ApplicationController
     @collection = Collection.find(params[:id])
     @collection.destroy
 
-    redirect_to collections_path
+    redirect_to dashboard_path
   end
 
   private
