@@ -61,8 +61,4 @@ class Slideshow {
 
 }
 
-$(document).ready(function () {
-  new Slideshow;
-});
-
 export { Slideshow };
