@@ -6,7 +6,7 @@
     <%= f.input :description %>
     <%= f.input :price %>
     <%= f.input :size %>
-    <%= f.input :available %>
+    <%= f.input :available, input_html: { class: "toggle" } %>
     <%= f.input :medium %>
     <%= f.input :style %>
     <%= f.input :photo, as: :file %>
