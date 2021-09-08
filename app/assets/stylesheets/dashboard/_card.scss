@@ -28,3 +28,9 @@
   background-color: #3333FF;
   color: white;
 }
+
+.dashboard-artworks {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  margin-top: 5%;
+}

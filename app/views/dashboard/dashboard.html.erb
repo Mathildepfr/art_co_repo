@@ -50,15 +50,15 @@
             <% end %>
           </div>
 
-          <div class="artworks-index-cards-container">
+          <div class="dashboard-artworks">
             <% @artworks.each do |artwork| %>
               <div class="artworks-index-cards">
                 <%= link_to artwork_path(artwork) do %>
                   <div class="artwork-index-card-img" style="background-image: url('<%= cl_image_path artwork.photo.key, crop: :fill %>')"></div>
                 <% end %>
                 <div class="artworks-index-card-text">
-                  <p><i class="fas fa-pen-fancy"></i><span class="text-muted">  <%= link_to 'Edit Artwork', edit_artwork_path(artwork)%></span></p>
-                  <p><i class="fas fa-trash-alt"></i><span class="text-muted">  <%= link_to "Delete Artwork", artwork_path(artwork), method: :delete, data: { confirm: "Are you sure?" } %> </span></p>
+                  <p><i class="fas fa-pen-fancy"></i><span class="text-muted">  <%= link_to 'Edit', edit_artwork_path(artwork)%></span></p>
+                  <p><i class="fas fa-trash-alt"></i><span class="text-muted">  <%= link_to "Delete", artwork_path(artwork), method: :delete, data: { confirm: "Are you sure?" } %> </span></p>
                 </div>
               </div>
             <% end %>
