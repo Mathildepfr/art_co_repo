@@ -1,0 +1,33 @@
+.button-submit {
+    text-align: center;
+    color: white;
+    padding: 7px;
+    background-color: transparent;
+    display: inline-block;
+    border-radius: 5px;
+    border: 2px solid white;
+    font-size: small;
+
+    &:hover {
+    color: #473D3D;
+    text-decoration: none;
+    background-color: white;
+    }
+}
+
+.button-submit-full {
+    text-align: center;
+    color: white;
+    padding: 7px;
+    background-color: black;
+    display: inline-block;
+    border-radius: 5px;
+    border: 2px solid white;
+    font-size: small;
+
+    &:hover {
+    color: #473D3D;
+    text-decoration: none;
+    background-color: white;
+    }
+}

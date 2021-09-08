@@ -8,10 +8,12 @@
 require "open-uri"
 
 puts "Destroying all files.."
-User.destroy_all
+
 Venue.destroy_all
 Collection.destroy_all
 Artwork.destroy_all
+User.destroy_all
+
 
 puts "Creating new files..."
 mathilde = User.create!(first_name: "Mathilde", last_name: "Peiffer",

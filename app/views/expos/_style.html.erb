@@ -1,0 +1,27 @@
+<div class="grid-outer">
+  <div class="grid-text">
+    <h2>What styles interest you?</h2>
+  </div>
+
+  <fieldset>
+    <div class="grid-3" id="medium-grid" style="margin-bottom: 100px;">
+      <% 3.times do
+        @styles.each do |style| %>
+        <div class="box box-image" data-checkbox='<%= style[0] %>'  style="background-image: url('<%= image_path "https://source.unsplash.com/random/800x600?#{style[0]}", crop: :fill %>')">
+          <i class="fas fa-check-circle"></i>
+        </div>
+        <% end %>
+      <% end %>
+    </div>
+  </fieldset>
+</div>
+
+<div style="visibility: hidden;">
+ <%= form.collection_check_boxes(:style_list, @styles, :first, :last, include_hidden: false) do |b| %>
+    <div class="form-check form-check-inline">
+      <%= b.check_box class: 'form-check-input',  id: b.object[1] %>
+      <%= b.label class: 'form-check-label' %>
+      debugger
+    </div>
+  <% end %>
+</div>

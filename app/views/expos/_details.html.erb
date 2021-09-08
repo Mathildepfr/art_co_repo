@@ -1,0 +1,18 @@
+<div class="container ctr", style="margin-top: 20px;">
+  <h2 style="margin-bottom: 30px;">Let's get an overview of the expo...</h2>
+  <h4>Venue Details</h4>
+  <div class="venue-details">
+    <h5><%= @venue.name %></h5>
+    <span style="color: white;"><strong> Location: </strong><%= @venue.address %></span> <br>
+    <span style="color: white;"><strong> Venue type: </strong><%= @venue.type_of_venue %> </span><br>
+    <span style="color: white;"><strong> Website: </strong><%= @venue.venue_url %></span> <br>
+  </div>
+
+
+  <h4>When do you want hold it?</h4>
+  <%= form.input :start_date, as: :date, html5: true %>
+  <%= form.input :end_date, as: :date, html5: true %>
+  <h4>Tell us a bit about the purpose of the expo</h4>
+  <h6>Let us know why you want to hold it, what inspires you, what should our artists know before they respond!</h6>
+  <%= form.input :description, as: :text, :input_html => { :cols => 5, :rows => 10 } %>
+</div>

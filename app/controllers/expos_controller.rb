@@ -6,6 +6,8 @@ class ExposController < ApplicationController
   end
 
   def new
+    @mediums = Expo::MEDIUM.map { |medium| [medium, medium] }
+    @styles = Expo::STYLE.map { |style| [style, style] }
     @venue = Venue.find(params[:venue_id])
     @expo = Expo.new
   end
@@ -14,10 +16,8 @@ class ExposController < ApplicationController
     @expo = Expo.new(expo_params)
     @venue = Venue.find(params[:venue_id])
     @expo.venue = @venue
-    @expo.rat = current_rat
     if @expo.save
       flash[:success] = "Successfully created expo!"
-      redirect_to dashboard_path
     else
       render :new
     end
@@ -44,6 +44,6 @@ class ExposController < ApplicationController
   private
 
   def expo_params
-    params.require(:expo).permit(:start_date, :end_date, :description, :venue_id)
+    params.require(:expo).permit(:start_date, :end_date, :description, :venue_id, style_list: [], medium_list: [])
   end
 end
