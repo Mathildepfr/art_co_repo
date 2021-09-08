@@ -29,11 +29,12 @@ import "bootstrap";
 import { Slideshow } from '../components/slideshow';
 import { initUpdateNavbarOnScroll } from '../components/navbar';
 import { loadDynamicBannerText } from '../components/banner';
-
+import { initMapbox } from '../plugins/init_mapbox';
 
 document.addEventListener('turbolinks:load', () => {
   // Call your functions here, e.g:
   Slideshow();
   initUpdateNavbarOnScroll();
   loadDynamicBannerText();
+  initMapbox();
 });

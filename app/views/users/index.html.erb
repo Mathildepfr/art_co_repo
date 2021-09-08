@@ -1,10 +1,1 @@
 <h1>All users</h1>
-
-
-<% @users.each do |user| %>
-  <h2><strong><%= link_to user.first_name, user_path(user) %> <%= user.last_name %></strong></h2>
-  <p><i class="fas fa-money-bill-alt"></i><span class="text-muted"> Address: </span><%= user.address %></p>
-  <p><i class="fas fa-money-bill-alt"></i> Artist?<%= user.is_artist %></p>
-  <p><i class="fas fa-hat-cowboy-side"></i><span class="text-muted"> Email: </span><%= user.email %></p>
-  <%= image_tag user.photo_url, height: 200, width: 200, crop: :fill %>
-<% end %>

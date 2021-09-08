@@ -1,0 +1,12 @@
+@import 'gallery';
+@import 'slideshow';
+
+.wrapper-venue {
+  display: flex;
+  margin: 40px auto;
+  max-width: 2000px;
+}
+
+.container-venue {
+  min-width: 600px;
+}
