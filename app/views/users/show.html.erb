@@ -7,7 +7,7 @@
       <i class="fab fa-instagram-square"></i>
     </div>
     <div class="user-artist-profile">
-      <div class="avatar-profile" style="background-image: url('<%= image_path @user.photo_url, crop: :fill %>')"></div>
+      <div class="avatar-profile" style="background-image: url('<%= cl_image_path @user.photo.key, crop: :fill %>')"></div>
       <div class="user-artist-show-text">
         <h1><%= @user.first_name %> <%= @user.last_name %></h1>
         <p class="text-secondary"><i class="fas fa-map-marker-alt"></i>  <%= @user.address %></p>
@@ -29,7 +29,7 @@
           <% @artworks.each do |artwork| %>
             <div class="artworks-index-cards">
               <%= link_to artwork_path(artwork) do %>
-                <div class="artwork-index-card-img" style="background-image: url('<%= image_path artwork.photo_url, crop: :fill %>')"></div>
+                <div class="artwork-index-card-img" style="background-image: url('<%= cl_image_path artwork.photo.key, crop: :fill %>')"></div>
               <% end %>
               <div class="artworks-index-card-text">
                 <h2><strong><%= link_to artwork.title, artwork_path(artwork) %></strong></h2>
@@ -49,7 +49,7 @@
               <% collection.artworks.each do |artwork| %>
                 <div class="collections-artworks-index-cards">
                   <%= link_to artwork_path(artwork) do %>
-                    <div class="collections-artwork-index-card-img" style="background-image: url('<%= image_path artwork.photo_url, crop: :fill %>')"></div>
+                    <div class="collections-artwork-index-card-img" style="background-image: url('<%= cl_image_path artwork.photo.key, crop: :fill %>')"></div>
                   <% end %>
                 </div>
               <% end %>
@@ -68,7 +68,7 @@
       <i class="fab fa-instagram-square"></i>
     </div>
     <div class="user-artist-profile">
-      <div class="avatar-profile" style="background-image: url('<%= image_path @user.photo_url, crop: :fill %>')"></div>
+      <div class="avatar-profile" style="background-image: url('<%= cl_image_path @user.photo.key, crop: :fill %>')"></div>
       <div class="user-artist-show-text">
         <h1><%= @user.first_name %> <%= @user.last_name %></h1>
         <p class="text-secondary"><i class="fas fa-map-marker-alt"></i>  <%= @user.address %></p>

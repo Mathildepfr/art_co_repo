@@ -1,7 +1,7 @@
 <div class="artworks-show-container">
   <div class="artworks-show-text">
     <%= link_to user_path(@artwork.collection.user) do %>
-      <div class="avatar-artwork" style="background-image: url('<%= image_path @artwork.collection.user.photo_url, crop: :fill %>')"></div>
+      <div class="avatar-artwork" style="background-image: url('<%= cl_image_path @artwork.collection.user.photo.key, crop: :fill %>')"></div>
     <% end %>
 
     <div class="artworks-text">
@@ -21,7 +21,7 @@
     </div>
   </div>
   <%= link_to artwork_path(@artwork) do %>
-    <div class="artwork-show-card-img" style="background-image: url('<%= image_path @artwork.photo_url, crop: :fill %>')"></div>
+    <div class="artwork-show-card-img" style="background-image: url('<%= cl_image_path @artwork.photo.key, crop: :fill %>')"></div>
   <% end %>
   <div class="artworks-show-text">
     <p><i class="fas fa-file-alt"></i><span class="text-muted"> Description: </span><%= @artwork.description %></p>
@@ -31,7 +31,7 @@
     <% @artwork.collection.artworks.each do |artwork| %>
       <div class="collections-artworks-index-cards">
         <%= link_to artwork_path(artwork) do %>
-          <div class="collections-artwork-index-card-img" style="background-image: url('<%= image_path artwork.photo_url, crop: :fill %>')"></div>
+          <div class="collections-artwork-index-card-img" style="background-image: url('<%= cl_image_path artwork.photo.key, crop: :fill %>')"></div>
         <% end %>
       </div>
     <% end %>

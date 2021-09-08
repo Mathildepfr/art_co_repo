@@ -8,7 +8,7 @@
     <% @artworks.each do |artwork| %>
       <div class="artworks-index-cards">
         <%= link_to artwork_path(artwork) do %>
-          <div class="artwork-index-card-img" style="background-image: url('<%= image_path artwork.photo_url, crop: :fill %>')"></div>
+          <div class="artwork-index-card-img" style="background-image: url('<%= cl_image_path artwork.photo.key, crop: :fill %>')"></div>
         <% end %>
         <div class="artworks-index-card-text">
           <h2><strong><%= link_to artwork.title, artwork_path(artwork) %></strong></h2>
