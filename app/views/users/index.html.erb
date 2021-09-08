@@ -1,7 +1,16 @@
+<div class="users-index-looking">
+  <div class="users-index-looking-container">
+    <%= link_to users_path(@users) do %>
+      <%= cl_image_tag("https://res.cloudinary.com/mathildepfr/image/upload/v1631100588/51BF62CA-7923-4EFC-B3E5-B2E562968119_1_105_c_os1bdi.jpg", crop: :fill) %>
+    <% end %>
+    <div>
+      <h1>Looking for someone?</h1>
+      <h1 class="text-muted">(Search bar)</h1>
+    </div>
+  </div>
+</div>
+
 <div class="users-index-container">
-    <h1>All our users</h1>
-
-
   <div class="users-index-grid">
     <% @users.each do |user| %>
       <div class="users-index-cards">

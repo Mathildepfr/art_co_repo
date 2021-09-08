@@ -1,7 +1,7 @@
 .artworks-index {
   width: 70%;
   margin: 0 auto;
-  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  // box-shadow: 0 0 15px rgba(0,0,0,0.2);
   padding: 2%;
 }
 
@@ -50,6 +50,24 @@
       font-size: 90%;
     }
 }
+
+.artworks-index-banner {
+  background-color: #1C1E27;
+}
+
+.artworks-index-banner-text {
+  width: 60%;
+  margin: 0 auto;
+  padding-top: 2%;
+  padding-bottom: 5%;
+  margin-bottom: 3%;
+  h1, p {
+    color: white;
+  }
+}
+
+
+
 
 
 
