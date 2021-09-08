@@ -3,10 +3,22 @@ body {
 }
 
 .img-container {
-  height: 80vh;
+  height: 40vh;
   overflow: hidden;
   position: relative;
   width: 100vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  h1 {
+    max-width: 50%;
+    z-index: 10;
+    color: white;
+    text-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    background-color: #1c1e2765;
+    border-radius: 8px;
+    padding: 2%;
+  }
 }
 
 .img-container img {
@@ -20,6 +32,7 @@ body {
   width: 100%;
   z-index: -1;
   background-image: linear-gradient(rgba(0, 0, 0, 0.527),rgba(0, 0, 0, 0.5));
+  // filter: grayscale(100);
 }
 
 .img-container img.next {
@@ -34,6 +47,6 @@ body {
 
 .img-container img.fade-out {
   opacity: 0;
-  transition: visibility 5s 3s, opacity 3s linear;
+  transition: visibility 3s 2s, opacity 3s linear;
   visibility: hidden;
 }
