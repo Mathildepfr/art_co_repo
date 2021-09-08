@@ -28,6 +28,7 @@
   aspect-ratio: 16 / 12;
   background-size: cover;
   border-radius: 8px;
+  margin-bottom: 3%;
 }
 
 .artwork-index-card-img:hover {
@@ -72,6 +73,7 @@
   aspect-ratio: 16 / 12;
   background-size: cover;
   border-radius: 8px;
+  margin-bottom: 3%;
 }
 
 .fas, i {
@@ -81,7 +83,7 @@
 .artworks-show-text {
   display: flex;
   justify-content: left;
-  align-items: center;
+  align-items: top;
   margin-top: 0;
   margin-bottom: 4%;
 }

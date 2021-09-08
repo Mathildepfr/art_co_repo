@@ -1,7 +1,79 @@
 
 <div class="img-container" data-slideshow>
-  <% rng = (1..20).to_a.shuffle %>
-  <% rng.each do |num| %>
-  <%= image_tag "banner/ArtBanner#{num}.jpeg", alt: "Art Banner #{num}", class: "banner-home" %>
-  <% end %>
+  <h1>Art Co is the world’s leading platform to create exhibitions and find the best artists.</h1>
+  <div class="img-rng">
+    <% rng = (1..20).to_a.shuffle %>
+    <% rng.each do |num| %>
+    <%= image_tag "banner/ArtBanner#{num}.jpeg", alt: "Art Banner #{num}", class: "banner-home" %>
+    <% end %>
+  </div>
+</div>
+
+<div class="homepage-container">
+  <%= link_to 'Find an artist today', artworks_path(@artworks), class: "btn homepage-btn"  %>
+  <div class="homepage-cards">
+    <div class="homepage-card">
+      <%= link_to artworks_path(@artworks) do %>
+        <%= cl_image_tag("https://res.cloudinary.com/mathildepfr/image/upload/v1631076955/6827587F-0B1F-43EF-836A-6D565201BB54_eyerhw.png", crop: :fill) %>
+      <% end %>
+      <%= link_to 'Create an Expo', artworks_path(@artworks), class: "btn homepage-dark-btn"  %>
+    </div>
+    <div class="homepage-card">
+      <%= link_to users_path(@users) do %>
+        <%= cl_image_tag("https://res.cloudinary.com/mathildepfr/image/upload/v1631077102/93E9FE66-F6BA-4E7F-9461-F8EDAB0CB607_hzalpb.png", crop: :fill) %>
+      <% end %>
+      <%= link_to 'Direct Contact', users_path(@users), class: "btn homepage-dark-btn"  %>
+    </div>
+  </div>
+</div>
+
+<div class="homepage-scroll-container">
+  <h4>Check out some of today’s popular shots</h4>
+  <div class="homepage-index-scroll">
+    <% @artworks.each do |artwork| %>
+      <div class="homepage-artworks-cards">
+        <%= link_to artwork_path(artwork) do %>
+          <div class="homepage-artworks-card-img" style="background-image: url('<%= cl_image_path artwork.photo.key, crop: :fill %>')"></div>
+        <% end %>
+      </div>
+    <% end %>
+  </div>
+</div>
+
+<div class="homepage-bottom-container">
+  <div class="homepage-bottom-left">
+    <%= image_tag "logo.png" %>
+    <p>Art Co is the world’s leading platform <br>to create expos and find the best artists.</p>
+    <div class="homepage-social-media">
+      <i class="fab fa-behance-square"></i>
+      <i class="fab fa-dribbble-square"></i>
+      <i class="fab fa-facebook-square"></i>
+      <i class="fab fa-instagram-square"></i>
+    </div>
+    <p class="text-muted">© 2021 Art Co. All rights reserved.</p>
+  </div>
+  <div>
+    <p>For artists</p>
+    <p class="text-muted">Explore artworks</p>
+    <p class="text-muted">Meetups</p>
+    <p class="text-muted">Community</p>
+  </div>
+  <div>
+    <p>For venues owners</p>
+    <p class="text-muted">Hire artists</p>
+    <p class="text-muted">Advertise</p>
+    <p class="text-muted">Searchs</p>
+  </div>
+  <div>
+    <p>Company</p>
+    <p class="text-muted">About</p>
+    <p class="text-muted">Careers</p>
+    <p class="text-muted">Support</p>
+  </div>
+  <div class="homepage-bottom-right">
+    <p>Informations</p>
+    <p class="text-muted">Terms of service</p>
+    <p class="text-muted">Privacy policy</p>
+    <p class="text-muted">Freelancing</p>
+  </div>
 </div>
