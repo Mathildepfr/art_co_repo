@@ -1,0 +1,20 @@
+@import 'slideshow';
+
+.wrapper-venue {
+  display: flex;
+  margin: 40px auto;
+  max-width: 2000px;
+}
+
+.container-venue {
+  flex-grow: 1;
+}
+
+.venue-container-map {
+  width: 400px;
+  height: 400px;
+}
+
+#map {
+  position: relative;
+}
