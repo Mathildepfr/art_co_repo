@@ -1,1 +1,15 @@
-<h1>All users</h1>
+<div class="users-index-container">
+    <h1>All our users</h1>
+
+
+  <div class="users-index-grid">
+    <% @users.each do |user| %>
+      <div class="users-index-cards">
+        <%= link_to user_path(user) do %>
+          <div class="users-index-cards-img" style="background-image: url('<%= cl_image_path user.photo.key, crop: :fill %>')"></div>
+        <% end %>
+        <h4><%= link_to user.first_name, user_path(user) %></h4>
+      </div>
+    <% end %>
+  </div>
+</div>

@@ -1,13 +1,14 @@
 <div class="artworks-index">
   <div class="artworks-index-text">
-    <h1>All artworks</h1>
+    <h1>Discover the world’s best artworks</h1>
+    <p>Find creative work of the world's best design professionals.</p>
   </div>
 
   <div class="artworks-index-container">
     <% @artworks.each do |artwork| %>
       <div class="artworks-index-cards">
         <%= link_to artwork_path(artwork) do %>
-          <div class="artwork-index-card-img" style="background-image: url('<%= image_path artwork.photo_url, crop: :fill %>')"></div>
+          <div class="artwork-index-card-img" style="background-image: url('<%= cl_image_path artwork.photo.key, crop: :fill %>')"></div>
         <% end %>
         <div class="artworks-index-card-text">
           <h2><strong><%= link_to artwork.title, artwork_path(artwork) %></strong></h2>
