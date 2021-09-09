@@ -14,7 +14,7 @@
         <% end %>
         <div class="artworks-index-card-text">
           <h2><strong><%= link_to artwork.title, artwork_path(artwork) %></strong></h2>
-          <p><i class="fas fa-question-circle"></i></i><span class="text-muted"> Available: </span><%= artwork.available ? '<i class="fas fa-check-circle text-success"></i>'.html_safe : '<i class="fas fa-times-circle text-danger"></i>'.html_safe %></p>
+          <p><i class="fas fa-question-circle"></i></i><span class="text-muted"> Available: </span><%= artwork.available ? '<i class="fas fa-check-circle text-success artwork-check"></i>'.html_safe : '<i class="fas fa-times-circle text-danger artwork-check"></i>'.html_safe %></p>
         </div>
       </div>
     <% end %>
