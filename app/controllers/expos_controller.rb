@@ -18,6 +18,7 @@ class ExposController < ApplicationController
     @expo.venue = @venue
     if @expo.save
       flash[:success] = "Successfully created expo!"
+      redirect_to dashboard_path
     else
       render :new
     end
