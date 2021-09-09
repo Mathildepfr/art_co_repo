@@ -1,0 +1,12 @@
+<div class="container-forms">
+  <h1>Create your <strong>venue</strong> !</h1>
+
+  <%= simple_form_for(@venue) do |f| %>
+    <%= f.input :name %>
+    <%= f.input :address %>
+    <%= f.input :type_of_venue %>
+    <%= f.input :venue_url %>
+    <%= f.input :photos, as: :file, input_html: {multiple: true} %>
+    <%= f.submit "Submit", class: "btn btn-success" %>
+  <% end %>
+</div>

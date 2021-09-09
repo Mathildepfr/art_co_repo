@@ -10,6 +10,11 @@
       </div>
     </div>
 
+    <!-- Button trigger edit -->
+    <button type="button" class="btn btn-secondary">
+      <%= link_to "Edit this venue", edit_venue_path(@venue) %>
+    </button>
+
     <!-- Button trigger modal -->
     <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
       See Venue Profile
@@ -35,6 +40,7 @@
                 <%= image_tag('avatar_placeholder.png', height: 200, width:200, crop: :fill) %>
               </div>
             <% end %>
+            <br>
               <p><i class="far fa-envelope"></i> <span class="text-muted"><%= @user.find(@venue.user_id).email %></span></p>
               <p><i class="fas fa-map-marker-alt"></i> <span class="text-muted"><%= @user.find(@venue.user_id).address %></span></p>
           </div>
@@ -45,20 +51,20 @@
       </div>
     </div>
 
-  <!-- Map -->
-  <%= render "map" %>
-  <!-- End of Map -->
 
 <!-- Container for the image gallery -->
   <div class="container-gallery">
 
     <!-- Full-width images with number text -->
-    <div class="mySlides">
-      <div class="numbertext">1 / 6</div>
-        <img class="big-img" src="https://images.unsplash.com/photo-1534353341328-aede12f06b84?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=3150&q=80" style="width:100%">
-    </div>
+    <%#= count = 1 %>
+    <% @venue.photos.each do |photo| %>
+      <div class="mySlides">
+        <%= cl_image_tag photo.key, height: 600, crop: :fill %>
+      </div>
+      <%#= count += 1 %>
+    <% end %>
 
-    <div class="mySlides">
+    <%# <div class="mySlides">
       <div class="numbertext">2 / 6</div>
         <img class="big-img" src="https://images.unsplash.com/photo-1444419988131-046ed4e5ffd6?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=3150&q=80" style="width:100%">
     </div>
@@ -81,38 +87,38 @@
     <div class="mySlides">
       <div class="numbertext">6 / 6</div>
         <img class="big-img" src="https://images.unsplash.com/photo-1510418650961-a97f9724fd8b?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=3150&q=80" style="width:100%">
-    </div>
+    </div> %>
 
     <!-- Next and previous buttons -->
     <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
     <a class="next" onclick="plusSlides(1)">&#10095;</a>
 
     <!-- Image text -->
-    <div class="caption-container">
+    <%# <div class="caption-container">
       <p id="caption"></p>
-    </div>
+    </div> %>
 
     <!-- Thumbnail images -->
-    <div class="thumbnail-row">
+    <%# <div class="thumbnail-row">
       <div class="column">
-        <img class="demo cursor" src="https://images.unsplash.com/photo-1534353341328-aede12f06b84?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=3150&q=80" style="width:100%" onclick="currentSlide(1)" alt="The Woods">
+        <img class="demo cursor" src="https://images.unsplash.com/photo-1534353341328-aede12f06b84?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=3150&q=80" style="width:100%" onclick="currentSlide(1)" alt="Venue Image #1">
       </div>
       <div class="column">
-        <img class="demo cursor" src="https://images.unsplash.com/photo-1444419988131-046ed4e5ffd6?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=3150&q=80" style="width:100%" onclick="currentSlide(2)" alt="Cinque Terre">
+        <img class="demo cursor" src="https://images.unsplash.com/photo-1444419988131-046ed4e5ffd6?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=3150&q=80" style="width:100%" onclick="currentSlide(2)" alt="Venue Image #2">
       </div>
       <div class="column">
-        <img class="demo cursor" src="https://images.unsplash.com/photo-1494672203374-c593733a6150?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=3151&q=80" style="width:100%" onclick="currentSlide(3)" alt="Mountains and fjords">
+        <img class="demo cursor" src="https://images.unsplash.com/photo-1494672203374-c593733a6150?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=3151&q=80" style="width:100%" onclick="currentSlide(3)" alt="Venue Image #3">
       </div>
       <div class="column">
-        <img class="demo cursor" src="https://images.unsplash.com/photo-1463143217634-f1089c4b3cc4?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=3150&q=80" style="width:100%" onclick="currentSlide(4)" alt="Northern Lights">
+        <img class="demo cursor" src="https://images.unsplash.com/photo-1463143217634-f1089c4b3cc4?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=3150&q=80" style="width:100%" onclick="currentSlide(4)" alt="Venue Image #4">
       </div>
       <div class="column">
-        <img class="demo cursor" src="https://images.unsplash.com/photo-1530639317500-ed49d1fd6d9e?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=3150&q=80" style="width:100%" onclick="currentSlide(5)" alt="Nature and sunrise">
+        <img class="demo cursor" src="https://images.unsplash.com/photo-1530639317500-ed49d1fd6d9e?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=3150&q=80" style="width:100%" onclick="currentSlide(5)" alt="Venue Image #5">
       </div>
       <div class="column">
-        <img class="demo cursor" src="https://images.unsplash.com/photo-1510418650961-a97f9724fd8b?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=3150&q=80" style="width:100%" onclick="currentSlide(6)" alt="Snowy Mountains">
+        <img class="demo cursor" src="https://images.unsplash.com/photo-1510418650961-a97f9724fd8b?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=3150&q=80" style="width:100%" onclick="currentSlide(6)" alt="Venue Image #6">
       </div>
-    </div>
+    </div> %>
   </div>
 </div>
 <script>
@@ -140,8 +146,11 @@ function showSlides(n) {
   for (i = 0; i < dots.length; i++) {
       dots[i].className = dots[i].className.replace(" active", "");
   }
-  slides[slideIndex-1].style.display = "block";
-  dots[slideIndex-1].className += " active";
-  captionText.innerHTML = dots[slideIndex-1].alt;
+  if (slides[slideIndex-1]) {
+    slides[slideIndex-1].style.display = "block";
+    dots[slideIndex-1].className += " active";
+    captionText.innerHTML = dots[slideIndex-1].alt;
+  }
+
 }
 </script>

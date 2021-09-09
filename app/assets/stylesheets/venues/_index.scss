@@ -3,7 +3,8 @@
 .wrapper-venue {
   display: flex;
   margin: 40px auto;
-  max-width: 2000px;
+  padding-left: 40px;
+  max-width: 1800px;
 }
 
 .container-venue {
@@ -13,6 +14,7 @@
 .venue-container-map {
   width: 400px;
   height: 400px;
+  margin-top: 40px;
 }
 
 #map {
