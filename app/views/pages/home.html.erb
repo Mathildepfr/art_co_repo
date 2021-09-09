@@ -36,7 +36,7 @@
         <p class="text-muted">We'll help you create an exhibition in your venue with the best artists and their most iconic collections.</p>
       </div>
       <div class="homepage-card">
-        <%= link_to users_path(@users) do %>
+        <%= link_to artworks_path(@artworks) do %>
           <%= cl_image_tag("https://res.cloudinary.com/mathildepfr/image/upload/v1631100589/ADD5FAC5-ED2C-4AB4-B2D2-D85D73DFAC9B_iiksgd.png", crop: :fill) %>
         <% end %>
         <%= link_to 'Find the best Artworks', artworks_path(@artworks), class: "btn homepage-btn"  %>
