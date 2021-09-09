@@ -6,7 +6,7 @@
     <%= f.input :address %>
     <%= f.input :type_of_venue %>
     <%= f.input :venue_url %>
-    <%= f.input :photo, as: :file %>
+    <%= f.input :photos, as: :file, input_html: {multiple: true} %>
     <%= f.submit "Go back", class: "btn btn-secondary" %>
     <%= f.submit "Submit", class: "btn btn-success" %>
   <% end %>
