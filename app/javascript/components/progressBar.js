@@ -47,7 +47,6 @@ const progressBar = () => {
       prev.disabled = true;
     } else if (currentActive === circles.length) {
       next.disabled = true;
-      // progress.style.width =
     } else {
       prev.disabled = false;
       next.disabled = false;
