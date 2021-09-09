@@ -108,12 +108,14 @@
             <% @allexpos.each do |expo| %>
               <div class="dashboard-venue-card">
                 <div class="dashboard-expo-card-text">
-                  <h2><strong><%= expo.venue.name %></strong></h2>
+                  <%= link_to venue_path(expo.venue) do %>
+                    <h2><strong><%= expo.venue.name %></strong></h2>
+                  <% end %>
+                  <%= link_to 'Apply', user_path(expo.venue.user), class: "btn dashboard-apply-btn"  %>
                   <p><i class="fas fa-calendar"></i><span class="text-muted"> From: </span><%= expo.start_date.strftime("%d %B %y") %></p>
                   <p><i class="fas fa-calendar-times"></i><span class="text-muted"> To: </span><%= expo.end_date.strftime("%d %B %y") %></p>
                   <p><span class="text-muted">Description: </span><%= expo.description %></p>
                 </div>
-                <%= link_to 'See venue', venue_path(expo.venue), class: "btn dashboard-btn"  %>
               </div>
             <% end %>
             <% if @allexpos.empty? %>

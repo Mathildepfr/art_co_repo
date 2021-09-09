@@ -58,7 +58,7 @@
   border-radius: 8px;
   padding: 4%;
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
-  color: black;
+  color: #1C1E27;
 }
 
 .no-expo-dashboard {
@@ -68,4 +68,27 @@
   img {
     width: 100%;
   }
+}
+
+.dashboard-expo-card-text {
+  a {
+    color: #1C1E27;
+    text-decoration: none;
+  }
+  a:hover {
+    color: #3333FF;
+  }
+}
+
+.dashboard-apply-btn {
+  margin: 3%;
+  margin-left: 0;
+  width: 100%;
+  background-color: #1C1E27;
+  color: white !important;
+}
+
+.dashboard-apply-btn:hover {
+  background-color: #3333FF;
+  color: white!important;
 }

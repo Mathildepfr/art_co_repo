@@ -1,0 +1,33 @@
+.venue-show-container {
+  width: 50%;
+  margin: 0 auto;
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  padding: 2%;
+}
+
+.venue-profile {
+  display: flex;
+  justify-content: left;
+  align-items: center;
+  margin: 2%;
+  margin-top: 0;
+  a {
+    margin: 2%;
+  }
+}
+
+.venue-social-media {
+  display: flex;
+  justify-content: right;
+  align-items: center;
+  font-size: 50px;
+  letter-spacing: 10px;
+}
+
+.venue-social-media i {
+  color: #3333FF;
+}
+
+.venue-social-media i:hover {
+  color: #1C1E27;
+}
