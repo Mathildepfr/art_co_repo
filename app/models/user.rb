@@ -7,6 +7,7 @@ class User < ApplicationRecord
   has_many :venues, dependent: :destroy
   has_many :collections, dependent: :destroy
   has_many :artworks, through: :collections
+  has_many :expos, through: :venues
 
   has_one_attached :photo
 end

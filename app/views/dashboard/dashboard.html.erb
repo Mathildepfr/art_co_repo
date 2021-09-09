@@ -80,25 +80,76 @@
             <%= link_to 'Edit profile', edit_user_path(current_user), class: "btn dashboard-btn"  %>
             <%= link_to 'Add venue', new_venue_path(@venues), class: "btn dashboard-btn"  %>
           </div>
-
-          <% @venues.each do |venue| %>
-            <div class="collection-index-card-text">
-              <h2><strong><%= venue.name %></strong></h2>
-              <p><%= venue.address %></p>
-              <p><%= venue.type_of_venue %></p>
-              <p><%= venue.venue_url %></p>
-            </div>
-            <div class="artworks-index-card-text">
-              <p><i class="fas fa-pen-fancy"></i><span class="text-muted">  <%= link_to 'Edit Venue', edit_venue_path(venue)%></span></p>
-              <p><i class="fas fa-trash-alt"></i><span class="text-muted">  <%= link_to "Delete Venue", venue_path(venue), method: :delete, data: { confirm: "Are you sure?" } %> </span></p>
-            </div>
-          <% end %>
+          <div class="dashboard-expo-grid">
+            <% @venues.each do |venue| %>
+              <div class="dashboard-venue-card">
+                <div class="collection-index-card-text">
+                  <h2><strong><%= venue.name %></strong></h2>
+                  <p><%= venue.address %></p>
+                  <p><%= venue.type_of_venue %></p>
+                  <p><%= venue.venue_url %></p>
+                </div>
+                <div class="artworks-index-card-text">
+                  <p><i class="fas fa-pen-fancy"></i><span class="text-muted">  <%= link_to 'Edit Venue', edit_venue_path(venue)%></span></p>
+                  <p><i class="fas fa-trash-alt"></i><span class="text-muted">  <%= link_to "Delete Venue", venue_path(venue), method: :delete, data: { confirm: "Are you sure?" } %> </span></p>
+                </div>
+                <%= link_to 'Create an expo', new_venue_expo_path(venue), class: "btn dashboard-btn-blue"  %>
+              </div>
+            <% end %>
+          </div>
         </div>
       <% end %>
     </div>
 
     <div class="tab-pane fade" id="items" role="tabpanel" aria-labelledby="items-tab">
-      <h1>Ok</h1>
+      <% if current_user.is_artist == true %>
+        <div class="user-dashboard-container">
+          <div class="dashboard-expo-grid">
+            <% @allexpos.each do |expo| %>
+              <div class="dashboard-venue-card">
+                <div class="dashboard-expo-card-text">
+                  <h2><strong><%= expo.venue.name %></strong></h2>
+                  <p><i class="fas fa-calendar"></i><span class="text-muted"> From: </span><%= expo.start_date.strftime("%d %B %y") %></p>
+                  <p><i class="fas fa-calendar-times"></i><span class="text-muted"> To: </span><%= expo.end_date.strftime("%d %B %y") %></p>
+                  <p><span class="text-muted">Description: </span><%= expo.description %></p>
+                </div>
+                <%= link_to 'See venue', venue_path(expo.venue), class: "btn dashboard-btn"  %>
+              </div>
+            <% end %>
+            <% if @allexpos.empty? %>
+              <div class="no-expo-dashboard">
+                <%= cl_image_tag("https://res.cloudinary.com/mathildepfr/image/upload/v1631163957/pale-list-is-empty_pmeven.png", crop: :fill) %>
+                <p> No expo yet </p>
+              </div>
+            <% end %>
+          </div>
+        </div>
+      <% else %>
+        <div class="user-dashboard-container">
+          <div class="dashboard-expo-grid">
+            <% @expos.each do |expo| %>
+              <div class="dashboard-venue-card">
+                <div class="dashboard-expo-card-text">
+                  <h2><strong><%= expo.venue.name %></strong></h2>
+                  <p><i class="fas fa-calendar"></i><span class="text-muted"> From: </span><%= expo.start_date.strftime("%d %B %y") %></p>
+                  <p><i class="fas fa-calendar-times"></i><span class="text-muted"> To: </span><%= expo.end_date.strftime("%d %B %y") %></p>
+                  <p><span class="text-muted">Description: </span><%= expo.description %></p>
+                </div>
+                <div class="artworks-index-card-text">
+                  <p><i class="fas fa-pen-fancy"></i><span class="text-muted">  <%= link_to 'Edit Expo', edit_expo_path(expo)%></span></p>
+                  <p><i class="fas fa-trash-alt"></i><span class="text-muted">  <%= link_to "Delete Expo", expo_path(expo), method: :delete, data: { confirm: "Are you sure?" } %> </span></p>
+                </div>
+              </div>
+            <% end %>
+            <% if @expos.empty? %>
+              <div class="no-expo-dashboard">
+                <%= cl_image_tag("https://res.cloudinary.com/mathildepfr/image/upload/v1631163957/pale-list-is-empty_pmeven.png", crop: :fill) %>
+                <p> No expo yet </p>
+              </div>
+            <% end %>
+          </div>
+        </div>
+      <% end %>
     </div>
   </div>
 </div>
