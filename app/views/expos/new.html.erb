@@ -1,0 +1,24 @@
+<div class="siema-body">
+    <%= simple_form_for [@venue, @expo] do |f| %>
+  <div class="siema">
+    <div><%= render 'medium', form: f %></div>
+    <div><%= render 'style', form: f %></div>
+    <div><%= render 'details', form: f %></div>
+    <div><%= render 'confirmation', form: f %></div>
+  </div>
+    <% end %>
+</div>
+
+<div class="progress-lower">
+  <button class="bttn prev button-submit" id="prev">Prev</button>
+  <button class="bttn next button-submit" id="next">Next</button>
+
+    <div class="progress-container">
+      <div class="progress" id="progress"></div>
+      <div class="circle activated"><i class="far fa-check-circle"></i></div>
+      <div class="circle activated"><i class="far fa-check-circle"></i></div>
+      <div class="circle activated"><i class="far fa-check-circle"></i></div>
+      <div class="circle activated"><i class="far fa-check-circle"></i></div>
+    </div>
+
+</div>

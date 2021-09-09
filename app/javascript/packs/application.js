@@ -29,10 +29,16 @@ import "bootstrap";
 import { Slideshow } from '../components/slideshow';
 import { initUpdateNavbarOnScroll } from '../components/navbar';
 import { loadDynamicBannerText } from '../components/banner';
+import { optionSelect } from '../components/option_select';
+import { createMySiema } from '../components/siema';
+import { progressBar } from '../components/progressBar';
 
 document.addEventListener('turbolinks:load', () => {
   // Call your functions here, e.g:
   new Slideshow;
   initUpdateNavbarOnScroll();
   loadDynamicBannerText();
+  optionSelect();
+  createMySiema();
+  progressBar();
 });

@@ -1,0 +1,35 @@
+<div class="grid-outer">
+  <div class="grid-text">
+    <h2>Select which mediums you are looking to commission</h2>
+  </div>
+
+  <fieldset>
+    <div class="grid-2" id="medium-grid">
+      <div class="box box-image" data-checkbox='paintings' style="background-image: url('<%= image_path "mediumstyle/painting3.jpeg", crop: :fill %>')">
+        <i class="fas fa-check-circle"></i>
+        <h5>Paintings</h5>
+      </div>
+      <div class="box box-image" data-checkbox='sculptures' style="background-image: url('<%= image_path "mediumstyle/sculpture.jpeg", crop: :fill %>')">
+        <i class="fas fa-check-circle"></i>
+        <h5>Sculptures</h5>
+      </div>
+      <div class="box box-image" data-checkbox='installations' style="background-image: url('<%= image_path "mediumstyle/installation.jpeg", crop: :fill %>')">
+        <i class="fas fa-check-circle"></i>
+        <h5>Installations</h5>
+      </div>
+      <div class="box box-image" data-checkbox='photography' style="background-image: url('<%= image_path "mediumstyle/photography.jpeg", crop: :fill %>')">
+        <i class="fas fa-check-circle"></i>
+        <h5>Photographs</h5>
+      </div>
+    </div>
+  </fieldset>
+</div>
+
+<div style="visibility: hidden;">
+ <%= form.collection_check_boxes(:medium_list, @mediums, :first, :last, include_hidden: false) do |b| %>
+    <div class="form-check form-check-inline">
+      <%= b.check_box class: 'form-check-input',  id: b.object[1] %>
+      <%= b.label class: 'form-check-label' %>
+    </div>
+  <% end %>
+</div>
