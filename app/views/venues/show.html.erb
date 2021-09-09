@@ -1,19 +1,31 @@
-<div class="venue-details">
-  <h5><%= @venue.name %></h5>
-  <span style="color: white;"><strong> Location: </strong><%= @venue.address %></span> <br>
-  <span style="color: white;"><strong> Venue type: </strong><%= @venue.type_of_venue %> </span><br>
-  <span style="color: white;"><strong> Website: </strong><%= @venue.venue_url %></span> <br>
-</div>
-<div class="venue-show-body">
-  <div class="container">
-    <div class="siema siema2">
-          <% @venue.photos.each do |photo| %>
-              <div style="height: 700px; width: 100%; background-size: 1100px; background-image: url('<%= cl_image_path photo.key, crop: :fill %>')"></div>
-          <% end %>
+<div class="venue-show-container">
+  <div class="venue-social-media">
+    <i class="fab fa-behance-square"></i>
+    <i class="fab fa-dribbble-square"></i>
+    <i class="fab fa-facebook-square"></i>
+    <i class="fab fa-instagram-square"></i>
+  </div>
+  <div class="venue-profile">
+    <%= link_to user_path(@venue.user) do %>
+      <div class="avatar-profile" style="background-image: url('<%= cl_image_path @venue.user.photo.key, crop: :fill %>')"></div>
+    <% end %>
+    <div class="venue-show-text">
+      <h1><%= @venue.name %></h1>
+      <p class="text-secondary"><i class="fas fa-map-marker-alt"></i>  <%= @venue.address %></p>
+      <p class="text-secondary"><i class="fas fa-envelope"></i>  <%= @venue.type_of_venue %></p>
+      <p class="text-secondary"><i class="fas fa-envelope"></i>  <%= @venue.venue_url %></p>
     </div>
-    <button class="bttn prev button-submit" id="prev">Prev</button>
-    <button class="bttn next button-submit" id="next">Next</button>
   </div>
 
-
+  <div class="venue-show-body">
+    <div class="container">
+      <div class="siema siema2">
+            <% @venue.photos.each do |photo| %>
+                <div style="height: 700px; width: 100%; background-size: 1100px; background-image: url('<%= cl_image_path photo.key, crop: :fill %>')"></div>
+            <% end %>
+      </div>
+      <button class="bttn prev button-submit" id="prev">Prev</button>
+      <button class="bttn next button-submit" id="next">Next</button>
+    </div>
+  </div>
 </div>
