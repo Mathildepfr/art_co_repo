@@ -13,7 +13,9 @@ class VenuesController < ApplicationController
 
   def create
     @venue = Venue.new(venue_params)
+    @venue.user = current_user
     if @venue.save
+      flash[:success] = "Successfully created venue!"
       redirect_to venue_path(@venue)
     else
       render :new
@@ -26,7 +28,9 @@ class VenuesController < ApplicationController
 
   def update
     @venue = Venue.find(params[:id])
-    @venue.update(params[:venue])
+    @venue.update(venue_params)
+
+    redirect_to venue_path
   end
 
   def destroy
@@ -39,6 +43,6 @@ class VenuesController < ApplicationController
   private
 
   def venue_params
-    params.require(:venue).permit(:name, :address, :type_of_venue, :venue_url, :photo)
+    params.require(:venue).permit(:name, :address, :type_of_venue, :venue_url, photos: [])
   end
 end
