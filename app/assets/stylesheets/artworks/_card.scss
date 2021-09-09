@@ -1,12 +1,15 @@
 .artworks-index {
-  margin-left: 5%;
-  margin-right: 5%;
+  width: 70%;
+  margin: 0 auto;
+  // box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  padding: 2%;
 }
 
 .artworks-index-container {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr;
   grid-gap: 2%;
+  margin-bottom: 10%;
 }
 
 .artworks-index-cards {
@@ -15,37 +18,71 @@
   padding: 0%;
 }
 
+.artworks-index-text {
+  margin-top: 2%;
+  margin-bottom: 2%;
+}
+
 .artwork-index-card-img {
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
   aspect-ratio: 16 / 12;
   background-size: cover;
   border-radius: 8px;
+  margin-bottom: 3%;
+}
+
+.artwork-index-card-img:hover {
+  opacity: 0.7;
 }
 
 .artworks-index-card-text {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  a {
+  a, h2 {
       font-weight: lighter;
       color: black;
       margin-bottom: 0;
-      font-size: 60%;
+      font-size: 100%;
     }
-    p {
+  p {
       margin-bottom: 0;
+      font-size: 90%;
     }
+}
+
+.artworks-index-banner {
+  background-color: #1C1E27;
+}
+
+.artworks-index-banner-text {
+  width: 60%;
+  margin: 0 auto;
+  padding-top: 2%;
+  padding-bottom: 5%;
+  margin-bottom: 3%;
+  h1, p {
+    color: white;
+  }
 }
 
 
 
+
+
+
 .artworks-show-container {
-  display: grid;
-  grid-template-columns: 1fr;
-  width: 40%;
+  width: 50%;
   margin: 0 auto;
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  padding: 2%;
   h2, a {
-    color: black;
+    color: #1C1E27;
+    text-decoration: none;
+  }
+  a:hover {
+    color: #3333FF;
+    text-decoration: none;
   }
 }
 
@@ -54,17 +91,33 @@
   aspect-ratio: 16 / 12;
   background-size: cover;
   border-radius: 8px;
+  margin-bottom: 3%;
 }
 
 .fas, i {
   color: #b4b4b4;
 }
 
+.artworks-show-text {
+  display: flex;
+  justify-content: left;
+  align-items: top;
+  margin-top: 0;
+  margin-bottom: 4%;
+}
+
 .artworks-show-text-icons {
   display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
 .artworks-show-text-title {
   display: flex;
   justify-content: space-between;
+}
+
+.artworks-text {
+  width: 100%;
+  margin-left: 5%;
 }

@@ -1,0 +1,16 @@
+<div class="container-forms">
+  <h1>Add a new <strong>artwork</strong> !</h1>
+
+  <%= simple_form_for(@artwork) do |f| %>
+    <%= f.input :title %>
+    <%= f.input :description %>
+    <%= f.association :collection %>
+    <%= f.input :price %>
+    <%= f.input :size %>
+    <%= f.input :available, input_html: { class: "toggle" } %>
+    <%= f.input :medium %>
+    <%= f.input :style %>
+    <%= f.input :photo, as: :file %>
+    <%= f.submit "Submit", class: "btn btn-success" %>
+  <% end %>
+</div>

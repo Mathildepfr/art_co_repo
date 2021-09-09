@@ -5,7 +5,7 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
 
   has_many :venues, dependent: :destroy
-  has_many :collections
+  has_many :collections, dependent: :destroy
   has_many :artworks, through: :collections
 
   has_one_attached :photo

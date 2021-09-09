@@ -1,0 +1,104 @@
+<div class="dashboard-container">
+  <ul class="nav nav-pills nav-fill" id="myTab" role="tablist">
+    <li class="nav-item" role="presentation">
+      <a class="nav-link active" id="request-tab" data-toggle="tab" href="#request" role="tab" aria-controls="request" aria-selected="true">My Profile</a>
+    </li>
+    <li class="nav-item" role="presentation">
+      <a class="nav-link" id="items-tab" data-toggle="tab" href="#items" role="tab" aria-controls="items" aria-selected="false">Expos</a>
+    </li>
+  </ul>
+  <div class="tab-content" id="myTabContent">
+    <div class="tab-pane fade show active" id="request" role="tabpanel" aria-labelledby="request-tab">
+      <% if current_user.is_artist == true %>
+        <div class="user-dashboard-container">
+          <div class="user-artist-profile">
+            <div class="avatar-profile" style="background-image: url('<%= cl_image_path current_user.photo.key, crop: :fill %>')"></div>
+            <div class="user-artist-show-text">
+              <h1><%= current_user.first_name %> <%= current_user.last_name %></h1>
+              <p class="text-secondary"><i class="fas fa-map-marker-alt"></i>  <%= current_user.address %></p>
+              <p class="text-secondary"><i class="fas fa-envelope"></i>  <%= current_user.email %></p>
+            </div>
+          </div>
+
+          <div class="dashboard-buttons">
+            <%= link_to 'Edit profile', edit_user_path(current_user), class: "btn dashboard-btn"  %>
+            <%= link_to 'Create collection', new_collection_path(@collections), class: "btn dashboard-btn"  %>
+            <%= link_to 'Add artwork', new_artwork_path(@artworks), class: "btn dashboard-btn"  %>
+          </div>
+
+          <div class="collections-index-cards-container">
+            <% @collections.each do |collection| %>
+              <div class="collection-index-card-text">
+                <h2><strong><%= collection.title %></strong>  <i class="fas fa-arrows-alt-h"></i></h2>
+                <div class="artworks-index-card-text">
+                  <p><i class="fas fa-pen-fancy"></i><span class="text-muted">  <%= link_to 'Edit Collection', edit_collection_path(collection)%></span></p>
+                  <p><i class="fas fa-trash-alt"></i><span class="text-muted">  <%= link_to "Delete Collection", collection_path(collection), method: :delete, data: { confirm: "Are you sure?" } %> </span></p>
+                </div>
+              </div>
+
+
+              <div class="collections-index-scroll">
+                <% collection.artworks.each do |artwork| %>
+                  <div class="collections-artworks-index-cards">
+                    <%= link_to artwork_path(artwork) do %>
+                      <div class="collections-artwork-index-card-img" style="background-image: url('<%= cl_image_path artwork.photo.key, crop: :fill %>')"></div>
+                    <% end %>
+                  </div>
+                <% end %>
+              </div>
+
+            <% end %>
+          </div>
+
+          <div class="dashboard-artworks">
+            <% @artworks.each do |artwork| %>
+              <div class="artworks-index-cards">
+                <%= link_to artwork_path(artwork) do %>
+                  <div class="artwork-index-card-img" style="background-image: url('<%= cl_image_path artwork.photo.key, crop: :fill %>')"></div>
+                <% end %>
+                <div class="artworks-index-card-text">
+                  <p><i class="fas fa-pen-fancy"></i><span class="text-muted">  <%= link_to 'Edit', edit_artwork_path(artwork)%></span></p>
+                  <p><i class="fas fa-trash-alt"></i><span class="text-muted">  <%= link_to "Delete", artwork_path(artwork), method: :delete, data: { confirm: "Are you sure?" } %> </span></p>
+                </div>
+              </div>
+            <% end %>
+          </div>
+
+        </div>
+      <% else %>
+        <div class="user-dashboard-container">
+          <div class="user-artist-profile">
+            <div class="avatar-profile" style="background-image: url('<%= cl_image_path current_user.photo.key, crop: :fill %>')"></div>
+            <div class="user-artist-show-text">
+              <h1><%= current_user.first_name %> <%= current_user.last_name %></h1>
+              <p class="text-secondary"><i class="fas fa-map-marker-alt"></i>  <%= current_user.address %></p>
+              <p class="text-secondary"><i class="fas fa-envelope"></i>  <%= current_user.email %></p>
+            </div>
+          </div>
+
+          <div class="dashboard-buttons">
+            <%= link_to 'Edit profile', edit_user_path(current_user), class: "btn dashboard-btn"  %>
+            <%= link_to 'Add venue', new_venue_path(@venues), class: "btn dashboard-btn"  %>
+          </div>
+
+          <% @venues.each do |venue| %>
+            <div class="collection-index-card-text">
+              <h2><strong><%= venue.name %></strong></h2>
+              <p><%= venue.address %></p>
+              <p><%= venue.type_of_venue %></p>
+              <p><%= venue.venue_url %></p>
+            </div>
+            <div class="artworks-index-card-text">
+              <p><i class="fas fa-pen-fancy"></i><span class="text-muted">  <%= link_to 'Edit Venue', edit_venue_path(venue)%></span></p>
+              <p><i class="fas fa-trash-alt"></i><span class="text-muted">  <%= link_to "Delete Venue", venue_path(venue), method: :delete, data: { confirm: "Are you sure?" } %> </span></p>
+            </div>
+          <% end %>
+        </div>
+      <% end %>
+    </div>
+
+    <div class="tab-pane fade" id="items" role="tabpanel" aria-labelledby="items-tab">
+      <h1>Ok</h1>
+    </div>
+  </div>
+</div>
