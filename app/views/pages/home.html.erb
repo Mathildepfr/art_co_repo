@@ -29,10 +29,10 @@
   <div class="homepage-container">
     <div class="homepage-cards">
       <div class="homepage-card">
-        <%= link_to artworks_path(@artworks) do %>
+        <%= link_to dashboard_path do %>
           <%= cl_image_tag("https://res.cloudinary.com/mathildepfr/image/upload/v1631076955/6827587F-0B1F-43EF-836A-6D565201BB54_eyerhw.png", crop: :fill) %>
         <% end %>
-        <%= link_to 'Create an Expo', artworks_path(@artworks), class: "btn homepage-btn"  %>
+        <%= link_to 'Create an Expo', dashboard_path, class: "btn homepage-btn"  %>
         <p class="text-muted">We'll help you create an exhibition in your venue with the best artists and their most iconic collections.</p>
       </div>
       <div class="homepage-card">

@@ -137,3 +137,14 @@
   padding-top: 0;
   margin: 2%;
 }
+
+.collection-index-card-text {
+  i, h2 {
+    color: #1C1E27;
+    text-decoration: none;
+  }
+  i:hover, h2:hover {
+    color: #3333FF;
+    text-decoration: none;
+  }
+}
