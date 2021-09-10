@@ -137,6 +137,7 @@
                     <p><i class="fas fa-calendar-times"></i><span class="text-muted"> To: </span><%= expo.end_date.strftime("%d %B %y") %></p>
                     <p><span class="text-muted">Description: </span><%= expo.description %></p>
                   </div>
+                    <%= link_to 'Apply', dashboard_path, class: "btn homepage-btn"  %>
                 </div>
               </div>
             <% end %>
