@@ -36,7 +36,6 @@
                 </div>
               </div>
 
-
               <div class="collections-index-scroll">
                 <% collection.artworks.each do |artwork| %>
                   <div class="collections-artworks-index-cards">
@@ -49,6 +48,7 @@
 
             <% end %>
           </div>
+
 
           <div class="dashboard-artworks">
             <% @artworks.each do |artwork| %>
@@ -123,14 +123,20 @@
           <div class="dashboard-expo-grid">
             <% @allexpos.each do |expo| %>
               <div class="dashboard-venue-card">
+                <% if expo.venue.photos.present? %>
+                  <%= cl_image_tag(expo.venue.photos.first.key) unless expo.venue.photos.first.key.blank? %>
+                <% else %>
+                  <%= cl_image_tag("https://res.cloudinary.com/mathildepfr/image/upload/v1631186164/undraw_art_museum_8or4_ncmsab.png") %>
+                <% end %>
                 <div class="dashboard-expo-card-text">
-                  <%= link_to venue_path(expo.venue) do %>
-                    <h2><strong><%= expo.venue.name %></strong></h2>
-                  <% end %>
-                  <%= link_to 'Apply', user_path(expo.venue.user), class: "btn dashboard-apply-btn"  %>
-                  <p><i class="fas fa-calendar"></i><span class="text-muted"> From: </span><%= expo.start_date.strftime("%d %B %y") %></p>
-                  <p><i class="fas fa-calendar-times"></i><span class="text-muted"> To: </span><%= expo.end_date.strftime("%d %B %y") %></p>
-                  <p><span class="text-muted">Description: </span><%= expo.description %></p>
+                  <div>
+                    <%= link_to venue_path(expo.venue) do %>
+                      <h2><strong><%= expo.venue.name %></strong></h2>
+                    <% end %>
+                    <p><i class="fas fa-calendar"></i><span class="text-muted"> From: </span><%= expo.start_date.strftime("%d %B %y") %></p>
+                    <p><i class="fas fa-calendar-times"></i><span class="text-muted"> To: </span><%= expo.end_date.strftime("%d %B %y") %></p>
+                    <p><span class="text-muted">Description: </span><%= expo.description %></p>
+                  </div>
                 </div>
               </div>
             <% end %>
@@ -141,6 +147,7 @@
               </div>
             <% end %>
           </div>
+
         </div>
       <% else %>
         <div class="user-dashboard-container">
