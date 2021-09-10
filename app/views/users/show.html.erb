@@ -78,13 +78,20 @@
     <div class="dashboard-expo-grid">
       <% @venues.each do |venue| %>
         <div class="dashboard-venue-card">
+          <% if venue.photos.present? %>
+            <%= cl_image_tag(venue.photos.first.key) unless venue.photos.first.key.blank? %>
+          <% else %>
+            <%= cl_image_tag("https://res.cloudinary.com/mathildepfr/image/upload/v1631186164/undraw_art_museum_8or4_ncmsab.png") %>
+          <% end %>
           <div class="dashboard-expo-card-text">
-            <%= link_to venue_path(venue) do %>
-              <h2><strong><%= venue.name %></strong></h2>
-            <% end %>
-            <p><%= venue.address %></p>
-            <p><%= venue.type_of_venue %></p>
-            <p><%= venue.venue_url %></p>
+            <div>
+              <%= link_to venue_path(venue) do %>
+                <h2><strong><%= venue.name %></strong></h2>
+              <% end %>
+              <p><%= venue.address %></p>
+              <p><%= venue.type_of_venue %></p>
+              <p><%= venue.venue_url %></p>
+            </div>
           </div>
         </div>
       <% end %>
