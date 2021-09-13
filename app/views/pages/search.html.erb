@@ -1,0 +1,30 @@
+
+
+    <div>
+      <h1>Your search results</h1>
+      <h1 class="text-muted">
+        <%= form_tag search_path, method: :get do %>
+          <%= text_field_tag :query,
+            params[:query],
+            class: "form-control",
+            placeholder: "Find an artist"
+          %>
+          <%= submit_tag "Search", class: "btn btn-primary" %>
+        <% end %>
+      </h1>
+    </div>
+  </div>
+
+
+<div class="users-index-container">
+  <div class="users-index-grid">
+    <% @users.each do |user| %>
+      <div class="users-index-cards">
+        <%= link_to user_path(user) do %>
+          <div class="avatar-index" style="background-image: url('<%= cl_image_path user.photo.key, crop: :fill %>')"></div>
+        <% end %>
+        <h4><%= link_to user.first_name, user_path(user) %></h4>
+      </div>
+    <% end %>
+  </div>
+</div>

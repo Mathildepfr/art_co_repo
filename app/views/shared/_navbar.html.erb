@@ -11,6 +11,17 @@
     <span class="navbar-toggler-icon"></span>
   </button>
 
+  <div class="form-inline my-2 my-lg-0">
+    <%= form_tag search_path, method: :get do %>
+    <%= text_field_tag :query,
+      params[:query],
+      class: "form-control",
+      placeholder: "Find an artist"
+    %>
+    <%= submit_tag "Search", class: "button-submit" %>
+  <% end %>
+  </div>
+
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">
       <% if user_signed_in? && current_user.is_artist %>
