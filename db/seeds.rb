@@ -16,6 +16,11 @@ end
 # article = Article.new(title: 'NES', body: "A great console")
 # article.photo.attach(io: file, filename: 'nes.png', content_type: 'image/png')
 
+PgSearch::Multisearch.rebuild(User)
+PgSearch::Multisearch.rebuild(Venue)
+PgSearch::Multisearch.rebuild(Artwork)
+PgSearch::Multisearch.rebuild(Collection)
+
 puts "Destroying all files.."
 
 Venue.destroy_all

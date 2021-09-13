@@ -10,4 +10,15 @@ class User < ApplicationRecord
   has_many :expos, through: :venues
 
   has_one_attached :photo
+
+  include PgSearch::Model
+  multisearchable against: %i[first_name last_name]
+  PgSearch.multisearch_options = { using: { tsearch: { prefix: true } } }
+
+  # include PgSearch::Model
+  # pg_search_scope :search_by_first_name_and_last_name,
+  #                 against: %i[first_name last_name],
+  #                 using: {
+  #                   tsearch: { prefix: true }
+  #                 }
 end
