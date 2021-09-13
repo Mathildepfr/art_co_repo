@@ -1,6 +1,6 @@
 // Specific CSS for your home-page
 .homepage-container {
-  width: 60%;
+  width: 50%;
   margin: 0 auto;
   // box-shadow: 0 0 15px rgba(0,0,0,0.2);
 }
@@ -8,25 +8,25 @@
 .homepage-cards {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 5%;
+  gap: 20%;
+}
+
+.hompage-link-image {
+  height: 350px;
 }
 
 .homepage-card {
-  box-shadow: 0 0 15px rgba(0,0,0,0.2);
-  border-radius: 8px;
-  height: 80%;
+  a {
+    display: block;
+  }
   img {
     width: 100%;
-    height: 100%;
-    // aspect-ratio: 16 / 12;
     background-size: cover;
     object-fit: cover;
-    border-radius: 8px;
   }
   img:hover {
     opacity: 0.95;
     padding: 5px;
-    background: #3333ff;
   }
 }
 
@@ -129,17 +129,26 @@
 }
 
 .homepage-looking {
-  width: 180px;
+  width: 260px;
   margin: 0 auto;
   margin-left: 2%;
+  position: fixed;
+  right: 20px;
+  bottom: 20px;
+  background-color: white;
+  padding: 2%;
+  border-radius: 8px;
+  box-shadow: 0px 4px 16px -4px rgba(43, 54, 76, 0.08), 0px 12px 24px -16px rgba(0, 0, 0, 0.25);
   img {
-    width: 100px;
+    width: 100%;
     height: 100px;
-    border-radius: 50%;
-    box-shadow: 0 1px 2px rgba(0,0,0,0.2);
-    border: white 1px solid;
+    border-radius: 8px;
+    border: #d2d2d2 1px solid;
     margin: 2%;
     background-size: cover;
+    object-fit: cover;
+    object-position: top;
+    margin-bottom: 6%;
   }
   img:hover {
     opacity: 0.95;
@@ -165,7 +174,7 @@
 
 .homepage-dark {
   background-color: #1C1E27;
-  margin-bottom: 3.5%;
+  margin-bottom: 2%;
 }
 
 .homepage-dark-text {
@@ -177,4 +186,99 @@
   h1, p {
     color: white;
   }
+}
+
+
+
+.homepage-steps-container {
+  width: 100%;
+  background-color: white;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 5%;
+
+  .homepage-btn {
+    width: 20%;
+    margin-top: 8%;
+    margin-bottom: 0;
+  }
+}
+
+.homepage-steps {
+  width: 50%;
+  margin-top: 6%;
+  margin-bottom: 6%;
+
+  h4 {
+    margin-bottom: 3%;
+  }
+}
+
+.homepage-steps-text {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  .number {
+    background-color: #3333ff;
+    border-radius: 100%;
+    width: 9%;
+    color: white;
+    margin-right: 4%;
+  }
+}
+
+.homepage-steps-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-gap: 5%;
+}
+
+.homepage-steps-grid-cards {
+  display: flex;
+  flex-direction: column;
+  img {
+    max-width: 100%;
+  }
+  p {
+    margin-bottom: 0;
+  }
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+#venue:before {
+    content: "";
+    display: block;
+    height: 100px;
+    margin: -100px 0 0;
+}
+
+.venue-btn {
+  background-color: white;
+  color: #1C1E27;
+  border-radius: 2px;
+  padding: 1% 2%;
+  margin-right: 2%;
+  text-decoration: none;
+}
+
+.venue-btn:hover {
+  background-color: #3333ff;
+  color: white;
+  text-decoration: none;
+}
+
+.artist-btn {
+  color: white;
+  text-decoration: none;
+}
+
+.artist-btn:hover {
+  color: rgba(255, 255, 255, 0.8);
+  text-decoration: none;
 }
