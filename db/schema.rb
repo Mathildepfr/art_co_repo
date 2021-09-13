@@ -66,6 +66,16 @@ ActiveRecord::Schema.define(version: 2021_09_13_012101) do
     t.index ["user_id"], name: "index_collections_on_user_id"
   end
 
+  create_table "expo_collections", force: :cascade do |t|
+    t.integer "status"
+    t.bigint "expo_id", null: false
+    t.bigint "collection_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["collection_id"], name: "index_expo_collections_on_collection_id"
+    t.index ["expo_id"], name: "index_expo_collections_on_expo_id"
+  end
+
   create_table "expos", force: :cascade do |t|
     t.datetime "start_date"
     t.datetime "end_date"
@@ -144,6 +154,8 @@ ActiveRecord::Schema.define(version: 2021_09_13_012101) do
   add_foreign_key "artist_invitations", "users"
   add_foreign_key "artworks", "collections"
   add_foreign_key "collections", "users"
+  add_foreign_key "expo_collections", "collections"
+  add_foreign_key "expo_collections", "expos"
   add_foreign_key "expos", "venues"
   add_foreign_key "taggings", "tags"
   add_foreign_key "venues", "users"
