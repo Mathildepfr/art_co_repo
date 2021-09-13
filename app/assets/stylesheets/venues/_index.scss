@@ -1,5 +1,6 @@
 @import 'slideshow';
 @import 'card';
+@import 'map';
 
 .wrapper-venue {
   display: flex;
@@ -10,14 +11,4 @@
 
 .container-venue {
   flex-grow: 1;
-}
-
-.venue-container-map {
-  width: 400px;
-  height: 400px;
-  margin-top: 40px;
-}
-
-#map {
-  position: relative;
 }

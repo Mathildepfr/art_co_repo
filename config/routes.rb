@@ -13,4 +13,5 @@ Rails.application.routes.draw do
   end
 
   resources :expos, only: %i[destroy edit update]
+  get 'map', to: 'venues#map'
 end

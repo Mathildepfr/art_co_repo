@@ -1,0 +1,33 @@
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>Geocoder</title>
+    <link rel="shortcut icon" href="data:image/x-icon;" type="image/x-icon">
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css"
+      integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
+    <link rel="stylesheet" href="css/style.css">
+  </head>
+  <body>
+    <div class="container">
+      <div class="row">
+        <div class="col-6 offset-md-3">
+          <form id="map-form" class='form-inline my-5'>
+            <input type="text" class="form-control flex-grow-1 mr-2" placeholder="Type an address">
+            <input type="submit" value="Find a venue!" class="btn btn-primary mt-2">
+          </form>
+          <div style="height: 500px">
+            <div id="map"  data-markers="<%= @markers.to_json %>" style="height: 500px; width: 600px"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script src="main.js"></script>
+  </body>
+</html>

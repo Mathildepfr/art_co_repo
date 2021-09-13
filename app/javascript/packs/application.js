@@ -32,6 +32,7 @@ import { loadDynamicBannerText } from '../components/banner';
 import { optionSelect } from '../components/option_select';
 import { createMySiema } from '../components/siema';
 import { progressBar } from '../components/progressBar';
+import { injectCoordinates, injectMap } from '../components/geocode';
 
 document.addEventListener('turbolinks:load', () => {
   // Call your functions here, e.g:
@@ -41,4 +42,30 @@ document.addEventListener('turbolinks:load', () => {
   optionSelect();
   createMySiema();
   progressBar();
+  // injectMap();
+  // injectCoordinates();
 });
+
+// const results = document.querySelector("#submit");
+
+// const displayMap = (query) => {
+//   fetch(`https://api.mapbox.com/geocoding/v5/mapbox.places/${query}.json?access_token=pk.eyJ1IjoiY2hpbGxpODE4IiwiYSI6ImNrc2ZrdjhpazFiaDMydnBhNTFrN29jbjkifQ.A9mmPD2G-OCUxKWzvNfeNQ`)
+//     .then(response => response.json())
+//     .then((data) => {
+//       // console.log(data)
+//       const longitude = data.features[0].center[0];
+//       const latitude = data.features[0].center[1];
+//       const coordinatesTag = `<p>${longitude}, ${latitude}</p>`;
+//       results.insertAdjacentHTML("beforeend", coordinatesTag);
+//     });
+// };
+
+// const form = document.querySelector('#form');
+
+// form.addEventListener('submit', (event) => {
+//   event.preventDefault();
+//   console.log(results);
+//   const input = event.currentTarget.querySelector('.form-control');
+//   results.innerHTML = '';
+//   displayMap(input.value);
+// });
