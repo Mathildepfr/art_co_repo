@@ -2,22 +2,37 @@
 <% if @results.present? %>
   <h2 class="page-title">SEARCH RESULTS...</h2>
 
-<input type="checkbox" id="vehicle1" name="vehicle1" value="Bike">
-<label for="vehicle1"> Artists</label><br>
-<input type="checkbox" id="vehicle2" name="vehicle2" value="Car">
-<label for="vehicle2"> Artwork</label><br>
-<input type="checkbox" id="vehicle3" name="vehicle3" value="Boat">
-<label for="vehicle3"> Collections</label><br>
-<input type="checkbox" id="vehicle3" name="vehicle3" value="Boat">
-<label for="vehicle3"> Owners</label><br>
-<input type="checkbox" id="vehicle3" name="vehicle3" value="Boat">
-<label for="vehicle3"> Venues</label><br>
-
-
+<div class="check-container">
 
   <% if @artists.present? %>
-  <div class="card-container">
-    <h3>Artists</h3>
+  <input type="checkbox" class="search-check" id="artists" name="artists" value="artists">
+  <label for="artists"> Artists</label>
+  <% end %>
+
+  <% if @artworks.present? %>
+  <input type="checkbox" class="search-check" id="artwork" name="artwork" value="artwork">
+  <label for="artwork"> Artwork</label>
+  <% end %>
+
+  <% if @collections.present? %>
+  <input type="checkbox" class="search-check" id="collections" name="collections" value="collections">
+  <label for="collections"> Collections</label>
+  <% end %>
+
+  <% if @owners.present? %>
+  <input type="checkbox" class="search-check" id="owners" name="owners" value="owners">
+  <label for="owners"> Owners</label>
+  <% end %>
+
+  <% if @venues.present? %>
+  <input type="checkbox" class="search-check" id="venues" name="venues" value="venues">
+  <label for="venues"> Venues</label>
+  <% end %>
+</div>
+
+  <% if @artists.present? %>
+  <div class="card-container" id="artists_field">
+    <h4>Artists</h4>
     <% @artists.each do |artist| %>
       <div class="searchcontainer">
       <div class="background-img" style="background-image: url('<%= cl_image_path artist.photo.key, crop: :fill %>')"></div>
@@ -39,8 +54,8 @@
   <% end %>
 
   <% if @owners.present? %>
-  <div class="card-container">
-    <h3>Venue owners</h3>
+  <div class="card-container" id="owners_field">
+    <h4>Venue owners</h4>
     <% @owners.each do |owner| %>
       <div class="searchcontainer">
       <div class="background-img" style="background-image: url('<%= cl_image_path owner.photo.key, crop: :fill %>')"></div>
@@ -62,8 +77,8 @@
   <% end %>
 
   <% if @venues.present? %>
-  <div class="card-container">
-    <h3>Venues</h3>
+  <div class="card-container" id="venues_field">
+    <h4>Venues</h4>
     <% @venues.each do |venue| %>
       <div class="searchcontainer">
       <% if venue.photos.first.present? %>
@@ -88,8 +103,8 @@
   <% end %>
 
   <% if @collections.present? %>
-    <div class="card-container">
-      <h3>Collections</h3>
+    <div class="card-container" id="collections_field">
+      <h4>Collections</h4>
       <% @collections.each do |collection| %>
         <div class="searchcontainer">
         <div class="background-img" style="background-image: url('<%= cl_image_path Artwork.where(collection_id: collection).first.photo.key, crop: :fill %>')"></div>
@@ -107,8 +122,8 @@
   <% end %>
 
   <% if @artworks.present? %>
-  <div class="card-container">
-    <h3>Artwork</h3>
+  <div class="card-container" id="artwork_field">
+    <h4>Artwork</h4>
     <% @artworks.each do |artwork| %>
       <div class="searchcontainer">
       <div class="background-img" style="background-image: url('<%= cl_image_path artwork.photo.key, crop: :fill %>')"></div>
