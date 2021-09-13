@@ -1,5 +1,6 @@
 import { formElements } from '@rails/ujs';
 import mapboxgl from 'mapbox-gl';
+import MapboxGeocoder from '@mapbox/mapbox-gl-geocoder';
 
 // const mapResults = document.querySelector("#submit")
 const mapForm = document.querySelector("#map-form")
@@ -54,16 +55,12 @@ const injectMap = (coordinates) => {
         .setPopup(popup)
         .addTo(map);
     });
-    // fitMapToMarkers(map, updateMapMarkers);
+
+    map.addControl(new MapboxGeocoder({
+      accessToken: mapboxgl.accessToken,
+      mapboxgl: mapboxgl
+    }));
   }
-  // new mapboxgl.Marker()
-  //   // .setLngLat([updateMapMarkers[0].lat, updateMapMarkers[0].lng])
-  //   .setLngLat([144.9789, 37.8011])
-  //   .addTo(map);
 };
 
 mapForm.addEventListener('submit', grabMapInput)
-
-
-
-// export { injectCoordinates, injectMap };
