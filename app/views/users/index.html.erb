@@ -4,8 +4,18 @@
       <%= cl_image_tag("https://res.cloudinary.com/mathildepfr/image/upload/v1631100588/51BF62CA-7923-4EFC-B3E5-B2E562968119_1_105_c_os1bdi.jpg", crop: :fill) %>
     <% end %>
     <div>
+      <%# Movie.search_by_first_name_and_last_name("george ket") %>
       <h1>Looking for someone?</h1>
-      <h1 class="text-muted">(Search bar)</h1>
+      <h1 class="text-muted">
+        <%= form_tag users_path, method: :get do %>
+          <%= text_field_tag :query,
+            params[:query],
+            class: "form-control",
+            placeholder: "Find an artist"
+          %>
+          <%= submit_tag "Search", class: "btn btn-primary" %>
+        <% end %>
+      </h1>
     </div>
   </div>
 </div>
