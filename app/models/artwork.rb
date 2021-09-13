@@ -6,4 +6,8 @@ class Artwork < ApplicationRecord
   has_one :user, through: :collection
 
   has_one_attached :photo
+
+  include PgSearch::Model
+  multisearchable against: %i[title description]
+  PgSearch.multisearch_options = { using: { tsearch: { prefix: true } } }
 end

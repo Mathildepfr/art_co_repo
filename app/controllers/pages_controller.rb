@@ -6,12 +6,12 @@ class PagesController < ApplicationController
   end
 
   def search
-    if params[:query].present?
-      sql_query = "first_name ILIKE :query OR last_name ILIKE :query"
-      @users = User.where(sql_query, query: "%#{params[:query]}%")
-    else
-      @users = User.all
-    end
+    @results = PgSearch.multisearch(params[:query])
+    @users = @results.select { |result| result.searchable_type == "User" }.map(&:searchable)
+    @artists = @users.select(&:is_artist?)
+    @owners = @users.reject(&:is_artist?)
+    @venues = @results.select { |result| result.searchable_type == "Venue" }.map(&:searchable)
+    @artworks = @results.select { |result| result.searchable_type == "Artwork" }.map(&:searchable)
+    @collections = @results.select { |result| result.searchable_type == "Collection" }.map(&:searchable)
   end
-
 end
