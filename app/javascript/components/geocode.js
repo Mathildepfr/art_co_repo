@@ -67,6 +67,24 @@ const injectMap = (coordinates) => {
       accessToken: mapboxgl.accessToken,
       mapboxgl: mapboxgl
     }));
+
+    map.addControl(new mapboxgl.FullscreenControl({ container: mapDiv }));
+
+    map.addControl(new mapboxgl.GeolocateControl({
+      positionOptions: {
+        enableHighAccuracy: true
+      },
+      trackUserLocation: true,
+      showUserHeading: true
+    }));
+
+    const scale = new mapboxgl.ScaleControl({
+      maxWidth: 80,
+      unit: 'metric'
+    });
+    map.addControl(scale);
+
+    scale.setUnit('metric');
   }
 };
 

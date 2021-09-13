@@ -33,13 +33,15 @@ import { optionSelect } from '../components/option_select';
 import { createMySiema } from '../components/siema';
 import { progressBar } from '../components/progressBar';
 import { injectCoordinates, injectMap } from '../components/geocode';
+import { initAutocomplete } from "../plugins/init_autocomplete";
 
 document.addEventListener('turbolinks:load', () => {
   // Call your functions here, e.g:
-  new Slideshow;
-  initUpdateNavbarOnScroll();
-  loadDynamicBannerText();
-  optionSelect();
-  createMySiema();
-  progressBar();
+  // new Slideshow;
+  // initUpdateNavbarOnScroll();
+  // loadDynamicBannerText();
+  // optionSelect();
+  // createMySiema();
+  // progressBar();
+  initAutocomplete();
 });
