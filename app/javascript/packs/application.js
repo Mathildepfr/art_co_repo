@@ -42,6 +42,12 @@ document.addEventListener('turbolinks:load', () => {
   loadDynamicBannerText();
   optionSelect();
   field_hide();
-  createMySiema();
-  progressBar();
+
+  if (document.querySelector('.progress-lower')) {
+    progressBar();
+  }
+
+  if (document.querySelector('.seima-body')) {
+    createMySiema();
+  }
 });
