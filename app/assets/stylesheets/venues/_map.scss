@@ -1,8 +1,11 @@
+
+
+
 .wrapper {
-  min-height: 100vh;
-  background-color: #2D3E4F;
-  color: white;
-  padding: 30px 60px;
+min-height: 100vh;
+background-color: #2D3E4F;
+color: white;
+padding: 30px 60px;
 }
 
 form {
@@ -11,12 +14,10 @@ form {
   margin: 0 auto;
 }
 
-input:first-child {
-  margin-right: 5px;
+.map-form-card {
+  margin-top: 100px;
 }
 
-#map {
-  display: flex;
-  width: 900px;
-  margin: 0 auto;
+input:first-child {
+  margin-right: 5px;
 }
