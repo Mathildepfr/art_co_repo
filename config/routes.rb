@@ -3,6 +3,7 @@ Rails.application.routes.draw do
   root to: 'pages#home'
   get 'dashboard', to: 'dashboard#dashboard'
   get 'search', to: 'pages#search'
+  get 'map', to: 'venues#map'
 
   resources :users
 
