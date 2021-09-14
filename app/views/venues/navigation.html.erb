@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Display navigation directions</title>
+<meta name="viewport" content="initial-scale=1,maximum-scale=1,user-scalable=no">
+<link href="https://api.mapbox.com/mapbox-gl-js/v2.4.1/mapbox-gl.css" rel="stylesheet">
+<script src="https://api.mapbox.com/mapbox-gl-js/v2.4.1/mapbox-gl.js"></script>
+</head>
+
+<body>
+  <div class="navigation-box">
+    <script src="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-directions/v4.1.0/mapbox-gl-directions.js"></script>
+    <link rel="stylesheet" href="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-directions/v4.1.0/mapbox-gl-directions.css" type="text/css">
+    <div id="map"></div>
+  </div>
+
+<script>
+	mapboxgl.accessToken = 'pk.eyJ1IjoiY2hpbGxpODE4IiwiYSI6ImNrc2ZrdjhpazFiaDMydnBhNTFrN29jbjkifQ.A9mmPD2G-OCUxKWzvNfeNQ';
+const map = new mapboxgl.Map({
+  container: 'map',
+  style: 'mapbox://styles/mapbox/streets-v11',
+  center: [144.9631, -37.8136],
+  zoom: 13
+});
+
+map.addControl(
+  new MapboxDirections({
+    accessToken: mapboxgl.accessToken,
+  }),
+  'top-left'
+);
+</script>
+
+</body>
+</html>

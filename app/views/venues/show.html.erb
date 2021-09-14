@@ -15,6 +15,15 @@
       <p class="text-secondary"><i class="fas fa-envelope"></i>  <%= @venue.type_of_venue %></p>
       <p class="text-secondary"><i class="fas fa-envelope"></i>  <%= @venue.venue_url %></p>
     </div>
+    <div class="venue-show-map ml-4 my-4">
+	    <div id="individual-map"
+        style="width: 300px; height: 200px;"
+        data-marker="<%= @marker.to_json %>"
+        data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
+      </div>
+      <br>
+      <%= link_to "Navigate to this venue", navigation_path, target: :blank, class: "btn btn-dark" %>
+    </div>
   </div>
 
   <div class="venue-show-body">
