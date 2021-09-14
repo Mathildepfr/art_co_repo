@@ -45,6 +45,11 @@ document.addEventListener('turbolinks:load', () => {
   field_hide();
   initAutocomplete();
   mapBoxInitalise();
-  createMySiema();
-  progressBar();
+  if (document.querySelector('.progress-lower')) {
+    progressBar();
+  }
+
+  if (document.querySelector('.seima-body')) {
+    createMySiema();
+  }
 });
