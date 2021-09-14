@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_09_13_003816) do
+ActiveRecord::Schema.define(version: 2021_09_13_012101) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -66,6 +66,16 @@ ActiveRecord::Schema.define(version: 2021_09_13_003816) do
     t.index ["user_id"], name: "index_collections_on_user_id"
   end
 
+  create_table "expo_collections", force: :cascade do |t|
+    t.integer "status"
+    t.bigint "expo_id", null: false
+    t.bigint "collection_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["collection_id"], name: "index_expo_collections_on_collection_id"
+    t.index ["expo_id"], name: "index_expo_collections_on_expo_id"
+  end
+
   create_table "expos", force: :cascade do |t|
     t.datetime "start_date"
     t.datetime "end_date"
@@ -74,6 +84,15 @@ ActiveRecord::Schema.define(version: 2021_09_13_003816) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["venue_id"], name: "index_expos_on_venue_id"
+  end
+
+  create_table "pg_search_documents", force: :cascade do |t|
+    t.text "content"
+    t.string "searchable_type"
+    t.bigint "searchable_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["searchable_type", "searchable_id"], name: "index_pg_search_documents_on_searchable_type_and_searchable_id"
   end
 
   create_table "taggings", id: :serial, force: :cascade do |t|
@@ -137,6 +156,8 @@ ActiveRecord::Schema.define(version: 2021_09_13_003816) do
   add_foreign_key "artist_invitations", "users"
   add_foreign_key "artworks", "collections"
   add_foreign_key "collections", "users"
+  add_foreign_key "expo_collections", "collections"
+  add_foreign_key "expo_collections", "expos"
   add_foreign_key "expos", "venues"
   add_foreign_key "taggings", "tags"
   add_foreign_key "venues", "users"

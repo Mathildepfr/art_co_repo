@@ -25,7 +25,7 @@
   </fieldset>
 </div>
 
-<div style="visibility: hidden;">
+<div>
  <%= form.collection_check_boxes(:medium_list, @mediums, :first, :last, include_hidden: false) do |b| %>
     <div class="form-check form-check-inline">
       <%= b.check_box class: 'form-check-input',  id: b.object[1] %>

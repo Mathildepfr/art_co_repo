@@ -20,19 +20,6 @@ function grabMapInput(event) {
   callMap(this.elements[0].value)
 }
 
-const fitMapToMarkers = (map, markers) => {
-  const bounds = new mapboxgl.LngLatBounds();
-  markers.forEach(marker => bounds.extend([marker.lng, marker.lat]));
-  map.fitBounds(bounds, { padding: 70, maxZoom: 15 });
-};
-
-
-
-// const injectCoordinates = (coordinates) => {
-//   const paragraphElement = document.getElementById('coordinates');
-//   paragraphElement.innerText = `${coordinates.lat}, ${coordinates.lng}`;
-// };
-
 const injectMap = (coordinates) => {
   const updateMapMarkers = JSON.parse(mapMarkers.dataset.markers)
   const mapDiv = document.getElementById('map');
@@ -88,4 +75,8 @@ const injectMap = (coordinates) => {
   }
 };
 
-mapForm.addEventListener('submit', grabMapInput)
+function mapBoxInitalise() {
+  mapForm.addEventListener('submit', grabMapInput)
+}
+
+export { mapBoxInitalise }

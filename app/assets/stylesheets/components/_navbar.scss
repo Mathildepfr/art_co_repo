@@ -76,3 +76,22 @@
 .dashboard-link {
   color: white!important;
 }
+
+.search-field {
+  border: 2px solid white;
+  background-color: transparent;
+  border-radius: 5px;
+  padding: 5px;
+  width: 20vw;
+  color: white;
+
+  &::placeholder {
+    color: white;
+    padding-left: 5px;
+  }
+
+  &:focus {
+    background-color: transparent;
+    color: $white;
+  }
+}
