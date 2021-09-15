@@ -35,11 +35,8 @@ import { progressBar } from '../components/progressBar';
 import { initAutocomplete } from "../plugins/init_autocomplete";
 import { field_hide } from '../components/field_hide';
 import { mapBoxInitalise } from "../components/geocode";
-<<<<<<< HEAD
 import { searchExpand } from "../components/searchExpand";
-=======
 import { initMapbox } from "../plugins/init_mapbox";
->>>>>>> c3726e8a312c03aea2f839e82beedd4011a4a5e2
 
 document.addEventListener('turbolinks:load', () => {
   // Call your functions here, e.g:
@@ -48,13 +45,8 @@ document.addEventListener('turbolinks:load', () => {
   loadDynamicBannerText();
   optionSelect();
   field_hide();
-<<<<<<< HEAD
-  initAutocomplete();
   searchExpand();
-  mapBoxInitalise();
-
-=======
-
+  
   if (document.querySelector('#venues-index-map')) {
     initAutocomplete();
     mapBoxInitalise();
@@ -63,12 +55,12 @@ document.addEventListener('turbolinks:load', () => {
   if (document.querySelector('#individual-map')) {
     initMapbox();
   }
->>>>>>> c3726e8a312c03aea2f839e82beedd4011a4a5e2
+
   if (document.querySelector('.progress-lower')) {
     progressBar();
   }
 
-  if (document.querySelector('.seima-body')) {
+  if (document.querySelector('.siema-body')) {
     createMySiema();
   }
 });
