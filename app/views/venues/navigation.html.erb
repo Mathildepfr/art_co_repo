@@ -7,32 +7,41 @@
 <link href="https://api.mapbox.com/mapbox-gl-js/v2.4.1/mapbox-gl.css" rel="stylesheet">
 <script src="https://api.mapbox.com/mapbox-gl-js/v2.4.1/mapbox-gl.js"></script>
 <style>
-.body { margin: 0; padding: 0; }
-.navigation-map { width: 800px; margin: auto; }
-#map { position: absolute; top: 100px; bottom: 100px; width: 800px; }
+  .body { margin: 0; padding: 0; }
+  .navigation-map { width: 800px; margin: auto; }
+  #map { position: absolute; top: 100px; bottom: 100px; width: 800px; }
 </style>
 </head>
+
 <body>
 <script src="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-directions/v4.1.0/mapbox-gl-directions.js"></script>
 <link rel="stylesheet" href="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-directions/v4.1.0/mapbox-gl-directions.css" type="text/css">
-  <div class="navigation-map">
-    <div id="map"></div>
-  </div>
-<script>
-	mapboxgl.accessToken = 'pk.eyJ1IjoiY2hpbGxpODE4IiwiYSI6ImNrc2ZrdjhpazFiaDMydnBhNTFrN29jbjkifQ.A9mmPD2G-OCUxKWzvNfeNQ';
-const map = new mapboxgl.Map({
-container: 'map',
-style: 'mapbox://styles/mapbox/streets-v11',
-center: [144.9631, -37.8136],
-zoom: 12
-});
+<div class="navigation-map">
+  <div id="map"></div>
+</div>
 
-map.addControl(
-new MapboxDirections({
-accessToken: mapboxgl.accessToken
-}),
-'top-left'
-);
+<script>
+  mapboxgl.accessToken = 'pk.eyJ1IjoiY2hpbGxpODE4IiwiYSI6ImNrc2ZrdjhpazFiaDMydnBhNTFrN29jbjkifQ.A9mmPD2G-OCUxKWzvNfeNQ';
+  const map = new mapboxgl.Map({
+    container: 'map',
+    style: 'mapbox://styles/mapbox/streets-v11',
+    center: <%= @coordinates %>,
+    zoom: 12
+  });
+
+  const mapDirections = new MapboxDirections({
+      accessToken: mapboxgl.accessToken
+  });
+
+  map.addControl(
+    mapDirections,
+    'top-left'
+  );
+
+  map.on('load', () => {
+    mapDirections.setDestination("<%= @address %>");
+  });
+
 </script>
 
 </body>

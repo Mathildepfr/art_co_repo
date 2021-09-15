@@ -25,6 +25,13 @@ class VenuesController < ApplicationController
                 image_url: helpers.asset_url('mapbox_marker2.png') }
   end
 
+  def navigation
+    @venue = Venue.find(params[:id])
+
+    @address = @venue.address
+    @coordinates = [@venue.longitude, @venue.latitude]
+  end
+
   def new
     @venue = Venue.new
   end

@@ -45,7 +45,7 @@ document.addEventListener('turbolinks:load', () => {
   optionSelect();
   field_hide();
 
-  if (document.querySelector('#map')) {
+  if (document.querySelector('#venues-index-map')) {
     initAutocomplete();
     mapBoxInitalise();
   }
