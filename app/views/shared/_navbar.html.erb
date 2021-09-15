@@ -3,8 +3,9 @@
 <% else %>
   <div class="navbar navbar-expand-sm navbar-light navbar-lewagon navbar-lewagon-darkblue">
 <% end %>
-  <%= link_to root_path, class: "navbar-brand" do %>
-    <%= image_tag "logo.png" %>
+  <%= link_to root_path, class: "navbar-brand logo-wrapper" do %>
+    <%= image_tag "logo.png", class:"color-logo" %>
+    <%= image_tag "LogoWhite.png", class:"white-logo" %>
   <% end %>
 
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -25,6 +26,9 @@
     </div>
     <ul class="navbar-nav mr-auto">
       <% if user_signed_in? && current_user.is_artist %>
+        <li class="nav-item active">
+          <%= link_to "All expos", expos_path, class: "nav-link dashboard-link" %>
+        </li>
         <li class="nav-item active">
           <%= link_to "All artworks", artworks_path, class: "nav-link dashboard-link" %>
         </li>

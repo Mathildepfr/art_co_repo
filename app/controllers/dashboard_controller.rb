@@ -4,6 +4,9 @@ class DashboardController < ApplicationController
     @collections = current_user.collections
     @venues = current_user.venues
     @expos = current_user.expos
-    @allexpos = Expo.all
+    @pending_expos = ExpoCollection.where(status: 'pending', expo: current_user.expos)
+    @historical_expos = ExpoCollection.where(status: ['accepted', 'declined'], expo: current_user.expos)
+
+    @applications = ExpoCollection.where(collection: @collections)
   end
 end

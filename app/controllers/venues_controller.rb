@@ -18,6 +18,18 @@ class VenuesController < ApplicationController
 
   def show
     @venue = Venue.find(params[:id])
+
+    @marker = { lat: @venue.latitude,
+                lng: @venue.longitude,
+                info_window: render_to_string(partial: "info_window", locals: { venue: @venue }),
+                image_url: helpers.asset_url('mapbox_marker2.png') }
+  end
+
+  def navigation
+    @venue = Venue.find(params[:id])
+
+    @address = @venue.address
+    @coordinates = [@venue.longitude, @venue.latitude]
   end
 
   def new

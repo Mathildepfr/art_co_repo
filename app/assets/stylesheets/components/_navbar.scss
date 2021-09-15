@@ -15,7 +15,7 @@
 }
 
 .navbar-lewagon .navbar-brand img {
-  width: 40px;
+  height: 100%;
 }
 
 .navbar-light .navbar-brand,
@@ -32,26 +32,44 @@
   align-items: center;
 }
 
-.logo_wrapper {
+.logo-wrapper {
   width: 40px;
   height: 40px;
   position: relative;
   margin-right: 8px;
-}
 
-.logo_wrapper img {
-  position: absolute;
-  left: 0;
+  .color-logo {
+    display: block;
+  }
 
-  &.white {
-    opacity: 0;
-    transition: opacity 0.2s linear;
-
-    &.logo-visible {
-      opacity: 1;
-    }
+  .white-logo {
+    display: none;
   }
 }
+
+.logo-wrapper.logo-visible {
+  .color-logo {
+    display: none;
+  }
+
+  .white-logo {
+    display: block;
+  }
+}
+
+// .logo_wrapper img {
+//   position: absolute;
+//   left: 0;
+
+//   .white {
+//     opacity: 0;
+//     transition: opacity 0.2s linear;
+
+//     .logo-visible {
+//       opacity: 1;
+//     }
+//   }
+// }
 
 #home-navbar {
   position: fixed;
