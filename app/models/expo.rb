@@ -2,6 +2,7 @@ class Expo < ApplicationRecord
   belongs_to :venue
   acts_as_taggable_on :mediums, :styles
   has_one :user, through: :venue
+  has_many :expo_collections, dependent: :destroy
 
   MEDIUM = ["paintings", "installations", "sculptures", "photography"]
   STYLE = ["pop art", "realist", "cubist",
