@@ -56,12 +56,36 @@ george = User.create!(first_name: "George", last_name: "Kettle",
 attach_photo(george, "https://avatars.githubusercontent.com/u/34521157?v=4")
 
 coolgallery = Venue.new(name: "Cool Gallery", address: "Fitzroy, Melbourne", type_of_venue: "Gallery", venue_url: "www.coolgallery.com")
+file = URI.open("https://res.cloudinary.com/mathildepfr/image/upload/v1631185278/bduut3tmxdt7p9yhg1wyr9ihnhfh.jpg")
+coolgallery.photos.attach(io: file, filename: 'photo', content_type: 'image/png')
+file = URI.open("https://res.cloudinary.com/mathildepfr/image/upload/v1631185277/guwl454wzlma2x1668809xbsw48v.jpg")
+coolgallery.photos.attach(io: file, filename: 'photo', content_type: 'image/png')
 coolgallery.user = charlie
 coolgallery.save
 
+gallerywagon = Venue.new(name: "Gallery Wagon", address: "Richmond, Melbourne", type_of_venue: "Gallery", venue_url: "www.gallerywagon.com")
+file = URI.open("https://res.cloudinary.com/mathildepfr/image/upload/v1631184835/1kw8ruzmiszn345l4lfmdm2751mg.jpg")
+gallerywagon.photos.attach(io: file, filename: 'photo', content_type: 'image/png')
+file = URI.open("https://res.cloudinary.com/mathildepfr/image/upload/v1631184837/1s0jfay8vagr8klsk7felw9nm56o.jpg")
+gallerywagon.photos.attach(io: file, filename: 'photo', content_type: 'image/png')
+gallerywagon.user = charlie
+gallerywagon.save
+
 farmrestaurant = Venue.new(name: "Farm Co", address: "Darlinghurst, Sydney", type_of_venue: "Restaurant", venue_url: "www.farmrestaurant.com")
+file = URI.open("https://res.cloudinary.com/mathildepfr/image/upload/v1631254758/hqutzfbusvbzzeb1df3ni85grie5.jpg")
+farmrestaurant.photos.attach(io: file, filename: 'photo', content_type: 'image/png')
+file = URI.open("https://res.cloudinary.com/mathildepfr/image/upload/v1631254759/1tpm4igu54eu2npwlbhk5brpyscl.jpg")
+farmrestaurant.photos.attach(io: file, filename: 'photo', content_type: 'image/png')
 farmrestaurant.user = george
 farmrestaurant.save
+
+byronbaygallery = Venue.new(name: "Byron Bay Gallery", address: "Byron Bay, Australia", type_of_venue: "Gallery", venue_url: "www.byronbaygallery.com")
+file = URI.open("https://res.cloudinary.com/mathildepfr/image/upload/v1631185729/kf4712axl5e77r36l1572yrlaykb.jpg")
+byronbaygallery.photos.attach(io: file, filename: 'photo', content_type: 'image/png')
+file = URI.open("https://res.cloudinary.com/mathildepfr/image/upload/v1631185732/piytutduyefqp3npx53vd89h7ho5.jpg")
+byronbaygallery.photos.attach(io: file, filename: 'photo', content_type: 'image/png')
+byronbaygallery.user = george
+byronbaygallery.save
 
 emotions = Collection.new(title: "Emotions")
 emotions.user = mathilde

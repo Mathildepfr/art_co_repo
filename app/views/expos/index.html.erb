@@ -1,0 +1,32 @@
+<div class="dashboard-container">
+  <div class="user-dashboard-container">
+    <div class="dashboard-expo-grid">
+      <% @expos.each do |expo| %>
+        <div class="dashboard-venue-card">
+          <% if expo.venue.photos.present? %>
+            <%= cl_image_tag(expo.venue.photos.first.key) unless expo.venue.photos.first.key.blank? %>
+          <% else %>
+            <%= cl_image_tag("https://res.cloudinary.com/mathildepfr/image/upload/v1631186164/undraw_art_museum_8or4_ncmsab.png") %>
+          <% end %>
+          <div class="dashboard-expo-card-text">
+            <div>
+              <%= link_to venue_path(expo.venue) do %>
+                <h2><strong><%= expo.venue.name %></strong></h2>
+              <% end %>
+              <p><i class="fas fa-calendar"></i><span class="text-muted"> From: </span><%= expo.start_date.strftime("%d %B %y") %></p>
+              <p><i class="fas fa-calendar-times"></i><span class="text-muted"> To: </span><%= expo.end_date.strftime("%d %B %y") %></p>
+              <p><span class="text-muted">Description: </span><%= expo.description %></p>
+            </div>
+            <%= render 'expos/apply_modal', expo: expo, expo_collection: ExpoCollection.new %>
+          </div>
+        </div>
+      <% end %>
+      <% if @expos.empty? %>
+        <div class="no-expo-dashboard">
+          <%= cl_image_tag("https://res.cloudinary.com/mathildepfr/image/upload/v1631163957/pale-list-is-empty_pmeven.png", crop: :fill) %>
+          <p> No expo yet </p>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>
