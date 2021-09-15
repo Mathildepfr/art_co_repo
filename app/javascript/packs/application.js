@@ -57,7 +57,7 @@ document.addEventListener('turbolinks:load', () => {
     progressBar();
   }
 
-  if (document.querySelector('.seima-body')) {
+  if (document.querySelector('.siema-body')) {
     createMySiema();
   }
 });
