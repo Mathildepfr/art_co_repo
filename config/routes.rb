@@ -5,6 +5,7 @@ Rails.application.routes.draw do
   get 'dashboard', to: 'dashboard#dashboard'
   get 'search', to: 'pages#search'
   get 'map', to: 'venues#map'
+  get 'venues/:id/navigation', to: 'venues#navigation', as: 'navigation'
 
   resources :users
 

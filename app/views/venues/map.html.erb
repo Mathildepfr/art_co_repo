@@ -1,17 +1,15 @@
 <body>
   <div class="container">
     <div class="row">
-      <div class="col-6 my-5">
+      <div class="map-form-card col-6 ">
         <h2>Want to search for a venue near you?</h2>
         <form id="map-form" class='form-inline my-5 ml-0'>
           <input id="search-bar" type="text" class="form-control flex-grow-1 mr-2" style="width: 300px" placeholder="Type an address">
           <input type="submit" value="Find a venue!" class="btn btn-primary mt-2">
         </form>
       </div>
-      <div class="col-6 my-5">
-        <div style="height: 500px">
-          <div id="map"  data-markers="<%= @markers.to_json %>" style="height: 500px; width: 600px"></div>
-        </div>
+      <div id="venues-index-map" class="col-6 my-5">
+        <div id="map" class="map" data-markers="<%= @markers.to_json %>" style="height: 500px; width: 600px"></div>
       </div>
     </div>
   </div>
