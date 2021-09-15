@@ -67,7 +67,7 @@ ActiveRecord::Schema.define(version: 2021_09_13_012101) do
   end
 
   create_table "expo_collections", force: :cascade do |t|
-    t.integer "status"
+    t.integer "status", default: 0, null: false
     t.bigint "expo_id", null: false
     t.bigint "collection_id", null: false
     t.datetime "created_at", precision: 6, null: false
