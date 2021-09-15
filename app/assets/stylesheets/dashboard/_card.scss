@@ -115,3 +115,34 @@
   background-color: #3333FF;
   color: white!important;
 }
+
+.accept-decline {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-gap: 4%;
+  width: 100%;
+  .btn {
+    background-color: blue;
+    color: white;
+    &:hover {
+      opacity: 0.7;
+    }
+  }
+}
+
+.dashboard-collapse-links {
+  color: #1C1E27;
+  text-decoration: none;
+  outline: 0;
+  box-shadow: none;
+  &:hover {
+    color: #3333FF;
+    text-decoration: none;
+    outline: 0;
+    box-shadow: none;
+  }
+  &:focus {
+    box-shadow: none;
+    text-decoration: none;
+  }
+}

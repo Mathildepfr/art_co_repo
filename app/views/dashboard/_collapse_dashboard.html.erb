@@ -3,7 +3,7 @@
     <div class="card">
       <div class="card-header" id="headingOne">
         <h2 class="mb-0">
-          <button class="btn btn-link btn-block text-left" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+          <button class="btn btn-link btn-block text-left dashboard-collapse-links" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
             My Expos
           </button>
         </h2>
@@ -48,7 +48,7 @@
     <div class="card">
       <div class="card-header" id="headingTwo">
         <h2 class="mb-0">
-          <button class="btn btn-link btn-block text-left collapsed" type="button" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+          <button class="btn btn-link btn-block text-left collapsed dashboard-collapse-links" type="button" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
             Pending Expos
           </button>
         </h2>
@@ -73,10 +73,12 @@
                     <p><i class="fas fa-palette"></i><span class="text-muted"> Collection: </span><%= application.collection.title %></p>
                     <p><i class="fas fa-paint-brush"></i><span class="text-muted"> Artist: </span><%= application.collection.user.first_name %>  <%= application.collection.user.last_name %></p>
                   </div>
-                  <% if application.status == 'pending' %>
-                    <%= link_to 'Accept', expo_collection_path(application, expo_collection: {status: 'accepted'}), method: :patch, class: "btn btn-primary" %>
-                    <%= link_to 'Decline', expo_collection_path(application, expo_collection: {status: 'declined'}), method: :patch, class: "btn btn-primary" %>
-                  <% end %>
+                  <div class="accept-decline">
+                    <% if application.status == 'pending' %>
+                      <%= link_to 'Accept', expo_collection_path(application, expo_collection: {status: 'accepted'}), method: :patch, class: "btn" %>
+                      <%= link_to 'Decline', expo_collection_path(application, expo_collection: {status: 'declined'}), method: :patch, class: "btn bg-dark" %>
+                    <% end %>
+                  </div>
                 </div>
               </div>
             <% end %>
@@ -93,7 +95,7 @@
     <div class="card">
       <div class="card-header" id="headingThree">
         <h2 class="mb-0">
-          <button class="btn btn-link btn-block text-left collapsed" type="button" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+          <button class="btn btn-link btn-block text-left collapsed dashboard-collapse-links" type="button" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
             Historic Expos
           </button>
         </h2>
