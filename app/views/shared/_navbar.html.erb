@@ -11,18 +11,18 @@
     <span class="navbar-toggler-icon"></span>
   </button>
 
-  <div class="form-inline my-2 my-lg-0">
-    <%= form_tag search_path, method: :get do %>
-    <%= text_field_tag :query,
-      params[:query],
-      class: "search-field",
-      placeholder: "Search the site"
-    %>
-    <%= submit_tag "Search", class: "button-submit" %>
-  <% end %>
-  </div>
-
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <div class="search-field" id='searchbarID'>
+        <%= form_tag search_path, method: :get do %>
+        <%= text_field_tag :query,
+          params[:query],
+          class: "search-entry",
+          placeholder: "Search the site"
+        %>
+        <%= submit_tag "Search", class: "button-submit", style: "display: none;" %>
+      <% end %>
+      <i class="fa fa-search" id="search-clicker"></i>
+    </div>
     <ul class="navbar-nav mr-auto">
       <% if user_signed_in? && current_user.is_artist %>
         <li class="nav-item active">

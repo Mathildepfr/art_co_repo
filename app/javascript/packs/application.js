@@ -35,6 +35,7 @@ import { progressBar } from '../components/progressBar';
 import { initAutocomplete } from "../plugins/init_autocomplete";
 import { field_hide } from '../components/field_hide';
 import { mapBoxInitalise } from "../components/geocode";
+import { searchExpand } from "../components/searchExpand";
 
 document.addEventListener('turbolinks:load', () => {
   // Call your functions here, e.g:
@@ -44,7 +45,9 @@ document.addEventListener('turbolinks:load', () => {
   optionSelect();
   field_hide();
   initAutocomplete();
+  searchExpand();
   mapBoxInitalise();
+
   if (document.querySelector('.progress-lower')) {
     progressBar();
   }
