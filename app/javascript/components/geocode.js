@@ -22,7 +22,6 @@ function grabMapInput(event) {
 
 const injectMap = (coordinates) => {
   const updateMapMarkers = JSON.parse(mapMarkers.dataset.markers)
-  debugger
   const mapDiv = document.getElementById('map');
   mapDiv.innerHTML = '';
 
