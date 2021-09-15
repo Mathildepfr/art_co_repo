@@ -1,6 +1,6 @@
 const initUpdateNavbarOnScroll = () => {
   const navbar = document.querySelector('#home-navbar');
-  const whiteLogo = document.querySelector('.logo_wrapper img.white');
+  const whiteLogo = document.querySelector('.navbar-brand');
 
   if (navbar) {
     window.addEventListener('scroll', () => {
