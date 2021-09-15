@@ -86,12 +86,20 @@
 .siema-body {
   width: 100%;
   margin: 0 auto;
+  form {
+    display: flex;
+    width: 100%;
+    margin: 0 auto;
+  }
 }
 
 .siema {
   margin: 1rem 5rem;
   img {
     width: 100%;
+  }
+  .siema-slide {
+    width: 100vw;
   }
 }
 

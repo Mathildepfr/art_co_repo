@@ -46,7 +46,7 @@ document.addEventListener('turbolinks:load', () => {
   optionSelect();
   field_hide();
   searchExpand();
-  
+
   if (document.querySelector('#venues-index-map')) {
     initAutocomplete();
     mapBoxInitalise();
@@ -60,7 +60,7 @@ document.addEventListener('turbolinks:load', () => {
     progressBar();
   }
 
-  if (document.querySelector('.siema-body')) {
+  if (document.querySelector('.siema-body, .siema')) {
     createMySiema();
   }
 });
