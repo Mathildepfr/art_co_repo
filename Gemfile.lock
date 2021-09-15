@@ -133,6 +133,7 @@ GEM
       racc (~> 1.4)
     nokogiri (1.12.4-x86_64-linux)
       racc (~> 1.4)
+    open-uri (0.1.0)
     orm_adapter (0.5.0)
     pg (1.2.3)
     pg_search (2.3.5)
@@ -273,6 +274,7 @@ DEPENDENCIES
   geocoder
   jbuilder (~> 2.7)
   listen (~> 3.2)
+  open-uri
   pg (>= 0.18, < 2.0)
   pg_search (~> 2.3.0)
   pry-byebug
