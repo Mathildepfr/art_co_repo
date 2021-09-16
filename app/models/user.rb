@@ -12,6 +12,11 @@ class User < ApplicationRecord
 
   has_one_attached :photo
 
+  validates :email, presence: true
+  validates :first_name, presence: true
+  validates :last_name, presence: true
+  validates :address, presence: true
+
   include PgSearch::Model
   multisearchable against: %i[first_name last_name]
   PgSearch.multisearch_options = { using: { tsearch: { prefix: true } } }

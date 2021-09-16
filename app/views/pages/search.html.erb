@@ -1,153 +1,153 @@
+<div class="search-page-container">
+  <% if @results.present? %>
+    <h2 class="page-title">SEARCH RESULTS...</h2>
 
-<% if @results.present? %>
-  <h2 class="page-title">SEARCH RESULTS...</h2>
+    <div class="check-container">
 
-<div class="check-container">
-
-  <% if @artists.present? %>
-  <input type="checkbox" class="search-check" id="artists" name="artists" value="artists">
-  <label for="artists"> Artists</label>
-  <% end %>
-
-  <% if @artworks.present? %>
-  <input type="checkbox" class="search-check" id="artwork" name="artwork" value="artwork">
-  <label for="artwork"> Artwork</label>
-  <% end %>
-
-  <% if @collections.present? %>
-  <input type="checkbox" class="search-check" id="collections" name="collections" value="collections">
-  <label for="collections"> Collections</label>
-  <% end %>
-
-  <% if @owners.present? %>
-  <input type="checkbox" class="search-check" id="owners" name="owners" value="owners">
-  <label for="owners"> Owners</label>
-  <% end %>
-
-  <% if @venues.present? %>
-  <input type="checkbox" class="search-check" id="venues" name="venues" value="venues">
-  <label for="venues"> Venues</label>
-  <% end %>
-</div>
-
-  <% if @artists.present? %>
-  <div class="card-container" id="artists_field">
-    <h4>Artists</h4>
-    <% @artists.each do |artist| %>
-      <div class="searchcontainer">
-      <div class="background-img" style="background-image: url('<%= cl_image_path artist.photo.key, crop: :fill %>')"></div>
-          <div class="container__text">
-            <h5><%= artist.first_name %> <%= artist.last_name %></h5>
-            <ul>
-              <li><strong>Collections:</strong> <%= Collection.where(user_id: artist).length %></li>
-              <% collections = Collection.where(user_id: artist) %>
-              <li><strong>Available pieces:</strong> <%= Artwork.where(collection_id: collections, available: true).length %></li>
-            </ul>
-            <%= link_to user_path(artist) do %>
-            <button class="btn">view<i class="fa fa-arrow-right"></i></button>
-            <% end %>
-          </div>
-      </div>
-    <% end %>
-  </div>
-  <% else %>
-  <% end %>
-
-  <% if @owners.present? %>
-  <div class="card-container" id="owners_field">
-    <h4>Venue owners</h4>
-    <% @owners.each do |owner| %>
-      <div class="searchcontainer">
-      <div class="background-img" style="background-image: url('<%= cl_image_path owner.photo.key, crop: :fill %>')"></div>
-          <div class="container__text">
-            <h5><%= owner.first_name %> <%= owner.last_name %></h5>
-            <ul>
-              <li><strong>Venues:</strong> <%= Venue.where(user_id: owner).length %></li>
-              <% venues = Venue.where(user_id: owner) %>
-              <li><strong>Expo's requested:</strong> <%= Expo.where(venue_id: venues).length %></li>
-            </ul>
-            <%= link_to user_path(owner) do %>
-              <button class="btn">view<i class="fa fa-arrow-right"></i></button>
-            <% end %>
-          </div>
-      </div>
-    <% end %>
-  </div>
-  <% else %>
-  <% end %>
-
-  <% if @venues.present? %>
-  <div class="card-container" id="venues_field">
-    <h4>Venues</h4>
-    <% @venues.each do |venue| %>
-      <div class="searchcontainer">
-      <% if venue.photos.first.present? %>
-        <div class="background-img" style="background-image: url('<%= cl_image_path venue.photos.first.key , crop: :fill %>')"></div>
-      <% else %>
-            <div class="background-img" style="background-image: url('https://source.unsplash.com/random/130x130?cafe')"></div>
+      <% if @artists.present? %>
+        <input type="checkbox" class="search-check" id="artists" name="artists" value="artists">
+        <label for="artists"> Artists</label>
       <% end %>
-          <div class="container__text">
-            <h5><%= venue.name %></h5>
-              <ul>
-                <li><strong>Type:</strong> <%= venue.type_of_venue %></li>
-                <li><strong>Address:</strong> <%= venue.address %></li>
-              </ul>
-            <%= link_to venue_path(venue) do %>
-              <button class="btn">view<i class="fa fa-arrow-right"></i></button>
-            <% end  %>
-          </div>
-      </div>
-    <% end %>
-  </div>
-  <% else %>
-  <% end %>
 
-  <% if @collections.present? %>
-    <div class="card-container" id="collections_field">
-      <h4>Collections</h4>
-      <% @collections.each do |collection| %>
-        <div class="searchcontainer">
-        <div class="background-img" style="background-image: url('<%= cl_image_path Artwork.where(collection_id: collection).first.photo.key, crop: :fill %>')"></div>
-            <div class="container__text">
-              <h5>The <%= collection.title %> Collection</h5>
-              <p><strong>Artist:</strong> <%= collection.user.first_name %> <%= collection.user.last_name %></p>
-              <%= link_to user_path(collection.user) do %>
-                <button class="btn">view<i class="fa fa-arrow-right"></i></button>
-              <% end %>
-            </div>
-        </div>
+      <% if @artworks.present? %>
+        <input type="checkbox" class="search-check" id="artwork" name="artwork" value="artwork">
+        <label for="artwork"> Artwork</label>
+      <% end %>
+
+      <% if @collections.present? %>
+        <input type="checkbox" class="search-check" id="collections" name="collections" value="collections">
+        <label for="collections"> Collections</label>
+      <% end %>
+
+      <% if @owners.present? %>
+        <input type="checkbox" class="search-check" id="owners" name="owners" value="owners">
+        <label for="owners"> Owners</label>
+      <% end %>
+
+      <% if @venues.present? %>
+        <input type="checkbox" class="search-check" id="venues" name="venues" value="venues">
+        <label for="venues"> Venues</label>
       <% end %>
     </div>
-  <% else %>
-  <% end %>
 
-  <% if @artworks.present? %>
-  <div class="card-container" id="artwork_field">
-    <h4>Artwork</h4>
-    <% @artworks.each do |artwork| %>
-      <div class="searchcontainer">
-      <div class="background-img" style="background-image: url('<%= cl_image_path artwork.photo.key, crop: :fill %>')"></div>
-          <div class="container__text">
-            <h5><%= artwork.title %></h5>
-            <ul>
-              <li><strong>Artist:</strong> <%= artwork.collection.user.first_name %> <%= artwork.collection.user.last_name %></li>
-              <li><strong>Collection:</strong> <%= artwork.collection.title %></li>
-              <li><strong>Price:</strong> $<%= artwork.price %></li>
-            </ul>
-            <%= link_to artwork_path(artwork) do %>
-              <button class="btn">view<i class="fa fa-arrow-right"></i></button>
-            <% end %>
+    <% if @artists.present? %>
+      <div class="card-container" id="artists_field">
+        <h4>Artists</h4>
+        <% @artists.each do |artist| %>
+          <div class="searchcontainer">
+          <div class="background-img" style="background-image: url('<%= cl_image_path artist.photo.key, crop: :fill %>')"></div>
+              <div class="container__text">
+                <h5><%= artist.first_name %> <%= artist.last_name %></h5>
+                <ul>
+                  <li><strong>Collections:</strong> <%= Collection.where(user_id: artist).length %></li>
+                  <% collections = Collection.where(user_id: artist) %>
+                  <li><strong>Available pieces:</strong> <%= Artwork.where(collection_id: collections, available: true).length %></li>
+                </ul>
+                <%= link_to user_path(artist) do %>
+                <button class="btn">view<i class="fa fa-arrow-right"></i></button>
+                <% end %>
+              </div>
           </div>
+        <% end %>
       </div>
+    <% else %>
     <% end %>
-  </div>
+
+    <% if @owners.present? %>
+      <div class="card-container" id="owners_field">
+        <h4>Venue owners</h4>
+        <% @owners.each do |owner| %>
+          <div class="searchcontainer">
+          <div class="background-img" style="background-image: url('<%= cl_image_path owner.photo.key, crop: :fill %>')"></div>
+              <div class="container__text">
+                <h5><%= owner.first_name %> <%= owner.last_name %></h5>
+                <ul>
+                  <li><strong>Venues:</strong> <%= Venue.where(user_id: owner).length %></li>
+                  <% venues = Venue.where(user_id: owner) %>
+                  <li><strong>Expo's requested:</strong> <%= Expo.where(venue_id: venues).length %></li>
+                </ul>
+                <%= link_to user_path(owner) do %>
+                  <button class="btn">view<i class="fa fa-arrow-right"></i></button>
+                <% end %>
+              </div>
+          </div>
+        <% end %>
+      </div>
+    <% else %>
+    <% end %>
+
+    <% if @venues.present? %>
+      <div class="card-container" id="venues_field">
+        <h4>Venues</h4>
+        <% @venues.each do |venue| %>
+          <div class="searchcontainer">
+          <% if venue.photos.first.present? %>
+            <div class="background-img" style="background-image: url('<%= cl_image_path venue.photos.first.key , crop: :fill %>')"></div>
+          <% else %>
+                <div class="background-img" style="background-image: url('https://source.unsplash.com/random/130x130?cafe')"></div>
+          <% end %>
+              <div class="container__text">
+                <h5><%= venue.name %></h5>
+                  <ul>
+                    <li><strong>Type:</strong> <%= venue.type_of_venue %></li>
+                    <li><strong>Address:</strong> <%= venue.address %></li>
+                  </ul>
+                <%= link_to venue_path(venue) do %>
+                  <button class="btn">view<i class="fa fa-arrow-right"></i></button>
+                <% end  %>
+              </div>
+          </div>
+        <% end %>
+      </div>
+    <% else %>
+    <% end %>
+
+    <% if @collections.present? %>
+      <div class="card-container" id="collections_field">
+        <h4>Collections</h4>
+        <% @collections.each do |collection| %>
+          <div class="searchcontainer">
+          <div class="background-img" style="background-image: url('<%= cl_image_path Artwork.where(collection_id: collection).first.photo.key, crop: :fill %>')"></div>
+              <div class="container__text">
+                <h5>The <%= collection.title %> Collection</h5>
+                <p><strong>Artist:</strong> <%= collection.user.first_name %> <%= collection.user.last_name %></p>
+                <%= link_to user_path(collection.user) do %>
+                  <button class="btn">view<i class="fa fa-arrow-right"></i></button>
+                <% end %>
+              </div>
+          </div>
+        <% end %>
+      </div>
+    <% else %>
+    <% end %>
+
+    <% if @artworks.present? %>
+      <div class="card-container" id="artwork_field">
+        <h4>Artwork</h4>
+        <% @artworks.each do |artwork| %>
+          <div class="searchcontainer">
+          <div class="background-img" style="background-image: url('<%= cl_image_path artwork.photo.key, crop: :fill %>')"></div>
+              <div class="container__text">
+                <h5><%= artwork.title %></h5>
+                <ul>
+                  <li><strong>Artist:</strong> <%= artwork.collection.user.first_name %> <%= artwork.collection.user.last_name %></li>
+                  <li><strong>Collection:</strong> <%= artwork.collection.title %></li>
+                  <li><strong>Price:</strong> $<%= artwork.price %></li>
+                </ul>
+                <%= link_to artwork_path(artwork) do %>
+                  <button class="btn">view<i class="fa fa-arrow-right"></i></button>
+                <% end %>
+              </div>
+          </div>
+        <% end %>
+      </div>
+    <% else %>
+    <% end %>
+
   <% else %>
+    <div class="card-container" style="width: 50%">
+      <div class="search-image" style="background-image: url('<%= image_path "mediumstyle/searching.png", crop: :fill %>')"></div>
+      <h2 style="text-align: center">Sorry, we couldn't find anything!<br>Try searching again.</h2>
+    </div>
   <% end %>
-
-<% else %>
-<div class="card-container" style="width: 50%">
-  <div class="search-image" style="background-image: url('<%= image_path "mediumstyle/searching.png", crop: :fill %>')"></div>
-  <h2 style="text-align: center">Sorry, we couldn't find anything!<br>Try searching again.</h2>
 </div>
-
-<% end %>

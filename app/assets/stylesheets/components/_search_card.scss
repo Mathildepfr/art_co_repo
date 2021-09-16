@@ -1,35 +1,31 @@
 $border-radius: 2px;
 
+.search-page-container {
+  width: 40%;
+  margin: 0 auto;
+  padding: 2%;
+}
+
 .page-title {
-  margin: 30px 0px 10px 120px;
   font-weight: 600;
 }
 
 .card-container {
-  background-color: white;
-  font-family: Arial, Helvetica, sans-serif;
-  display: grid;
-  place-items: left;
   margin: 20px auto;
-
   h4 {
     font-weight: 500;
     margin-top: 0px;
     margin-bottom: 15px;
-    margin-left: 120px;
   }
 }
 
 .searchcontainer {
   height: 130px;
-  max-width: 600px;
   background-color: white;
   position: relative;
-  display: grid;
-  grid-template-columns: 130px 600px;
-  border-radius: $border-radius;
-  box-shadow: 0 8px 12px rgba(0, 0, 0, 0.356);
-  margin: 0px 80px 15px 120px;
+  border-radius: 2px;
+  display: flex;
+  margin-bottom: 3%;
   .background-img {
     height: 100%;
     width: 130px;
@@ -91,10 +87,6 @@ $border-radius: 2px;
  .search-check {
   position: absolute;
   transform: scale(0);
- }
-
- .check-container {
-  margin-left: 120px;
  }
 
  .search-check + label {

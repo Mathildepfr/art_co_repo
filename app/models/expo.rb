@@ -4,6 +4,10 @@ class Expo < ApplicationRecord
   has_one :user, through: :venue
   has_many :expo_collections, dependent: :destroy
 
+  validates :start_date, presence: true
+  validates :end_date, presence: true
+  validates :description, presence: true
+
   MEDIUM = ["paintings", "installations", "sculptures", "photography"]
   STYLE = ["pop art", "realist", "cubist",
            "ukiyo", "abstract", "cubism",
