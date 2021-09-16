@@ -1,0 +1,4 @@
+meta_product_name: "Art Co"
+meta_title: "Art Co - Platform to create exhibitions"
+meta_description: "Art Co is the world’s leading platform to create exhibitions and find the best artists."
+meta_image: "cover.jpg" # should exist in `app/assets/images/`
