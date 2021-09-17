@@ -2,10 +2,10 @@
 <%# <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
   Launch demo modal
 </button> %>
-<%= link_to 'Apply', dashboard_path, class: "btn homepage-btn", data: { toggle: "modal", target: "#exampleModal"}  %>
+<%= link_to 'Apply', dashboard_path, class: "btn homepage-btn", data: { toggle: "modal", target: "#expoModal#{expo.id}"}  %>
 
 <!-- Modal -->
-<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<div class="modal fade" id="expoModal<%= expo.id %>" tabindex="-1" aria-labelledby="expoModal<%= expo.id %>Label" aria-hidden="true">
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
@@ -15,6 +15,7 @@
         </button>
       </div>
       <div class="modal-body">
+        <h4>Apply for <%= expo.venue.name %></h4>
         <%= simple_form_for [expo, expo_collection] do |f| %>
           <%= f.input(:collection_id, :collection => current_user.collections) %>
           <%= f.submit 'Apply' %>
