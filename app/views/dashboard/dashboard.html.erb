@@ -132,6 +132,9 @@
                     <p><i class="fas fa-calendar-times"></i><span class="text-muted"> To: </span><%= expo.end_date.strftime("%d %B %y") %></p>
                     <p><span class="text-muted">Status: </span><%= application.status %></p>
                   </div>
+                  <div class="artworks-index-card-text">
+                    <p><i class="fas fa-trash-alt"></i><span class="text-muted">  <%= link_to "Delete Expo", expo_path(expo), method: :delete, data: { confirm: "Are you sure?" } %> </span></p>
+                  </div>
                 </div>
               </div>
             <% end %>
