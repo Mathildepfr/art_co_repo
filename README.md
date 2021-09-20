@@ -17,7 +17,9 @@
 
 ![screenshot-www art-co me-2021 09 20-15_26_23](https://user-images.githubusercontent.com/86634734/133960630-137b10f9-7dd3-401f-a15f-5376d19b0d87.png)
 
+![screenshot-www art-co me-2021 09 20-13_11_34](https://user-images.githubusercontent.com/86634734/133960753-26aa2ee0-a59f-4d36-a780-1411fbd83588.png)
 
+![screenshot-www art-co me-2021 09 20-13_10_13](https://user-images.githubusercontent.com/86634734/133960781-c978935c-a477-43ee-ada3-73277c9ad198.png)
 
 
 
