@@ -3,6 +3,8 @@
 
 - 🔭 I’m still being developped [Art Co](https://www.art-co.me/)
 
+If you like this Repo, Please click the ⭐
+
 - 🌱 I was started during a coding bootcamp with **Le Wagon, Melbourne**
 
 - 🤝 ArtCo can help you create the most amazing exhibitions in your venue. We make it easy to connect with artists and venues from around the world.
