@@ -6,7 +6,7 @@ Have a look: http://www.mathildepeiffer.com/artco
 
 - 🔭 I’m still being developped, check here: [Art Co](https://www.art-co.me/)
 
-- 🌱 I was started during a coding bootcamp with **Le Wagon, Melbourne**
+- 🌱 I was started during a coding bootcamp with **Le Wagon, Melbourne** batch #680
 
 - 🤝 ArtCo can help you create the most amazing exhibitions in your venue. We make it easy to connect with artists and venues from around the world.
 
