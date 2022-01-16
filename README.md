@@ -2,7 +2,7 @@
 <h3 align="center">Art Co is the world’s leading platform to create exhibitions and find the best artists.</h3>
 
 
-Have a look: http://www.mathildepeiffer.com/artco
+Have a look: http://www.mathildepeiffer.com/artco 
 
 - 🔭 I’m still being developped, check here: [Art Co](https://www.art-co.me/)
  
