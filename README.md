@@ -4,7 +4,7 @@
  
 Have a look: http://www.mathildepeiffer.com/artco 
 
-- 🔭 I’m still being developped, check here: [Art Co](https://www.art-co.me/)
+- 🔭 I’m still being developped, check here: [Art Co](https://www.art-co.me/) 
  
 - 🌱 I was started during a coding bootcamp with **Le Wagon, Melbourne** batch #680  
 
